@@ -1,0 +1,2203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Tokyo trip planner · optional 明治大学 lunch + walks, meals, cafés & shops</title>
+<style>
+:root{--paper:#f7f5ef;--white:#fff;--ink:#182c31;--muted:#627376;--line:#dbe2df;--walk:#087b67;--rail:#6765a3;--pending:#bd782b;--gold:#d6a326;--soft:#eaf2ed;--shadow:0 9px 28px #16382b0a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP','Yu Gothic',sans-serif}button,select{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:#006c62;text-underline-offset:3px}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}h1,h2,h3,p{margin:0}button{color:var(--ink)}.shell{max-width:1550px;margin:auto;padding:25px 28px 50px}.brand{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:22px;border-bottom:1px solid var(--line)}.eyebrow{letter-spacing:.15em;font-size:11px;font-weight:800;text-transform:uppercase;color:var(--walk)}h1{font-size:clamp(29px,3.4vw,46px);letter-spacing:-.045em;line-height:1.18;margin:6px 0 8px}.sub{color:var(--muted);max-width:850px;font-size:14px}.basebox{min-width:282px;padding:14px;background:var(--white);border:1px solid var(--line);border-radius:14px}.smallcaps{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.segmented{display:flex;padding:4px;background:#edf0eb;border-radius:10px;gap:4px;margin-top:7px}.segmented button{flex:1;background:none;border:0;border-radius:7px;padding:8px 10px;font-size:13px}.segmented button.active{background:var(--ink);color:white}.basequote{font-size:11px;color:var(--muted);margin-top:8px}.intro{display:flex;gap:10px;align-items:center;margin:16px 0;color:var(--muted);font-size:12px}.intro strong{color:var(--ink)}.badge{font-size:10px;font-weight:800;letter-spacing:.03em;border-radius:6px;padding:5px 8px;background:var(--soft);color:#236652;white-space:nowrap}.badge.gold{background:#f5ead0;color:#8f651c}.tabbar{display:flex;gap:6px;overflow:auto;padding:0 0 12px;scrollbar-width:thin}.daytab{white-space:nowrap;flex:1;min-width:85px;padding:10px 10px;border:1px solid var(--line);background:var(--white);border-radius:12px;text-align:left}.daytab b{display:block;font-size:12px}.daytab span{display:block;font-size:10px;margin-top:3px;color:var(--muted)}.daytab.active{border-color:var(--ink);background:var(--ink);color:white}.daytab.active span{color:#c8ded6}.daytab.new b:after{content:' ●';color:var(--gold)}.workspace{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(340px,.85fr);gap:18px;align-items:start}.mapcard{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:sticky;top:14px;box-shadow:var(--shadow)}.mapheading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 18px 10px}.mapheading h2{font-size:21px;letter-spacing:-.03em}.mapheading p{font-size:12px;color:var(--muted);margin-top:3px}.tools{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 12px}.tool{border:1px solid var(--line);background:white;font-size:11px;border-radius:7px;padding:7px 9px}.tool.active{background:var(--soft);border-color:#a6c2b5}.map{height:560px;position:relative;overflow:hidden;background:#e9eeeb;isolation:isolate;touch-action:none;cursor:grab}.map:active{cursor:grabbing}.tiles{position:absolute;inset:0;z-index:0;overflow:hidden}.tile{position:absolute;width:256px;height:256px;max-width:none;user-select:none;-webkit-user-drag:none}.overlay{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden}.pins{position:absolute;inset:0;z-index:2;pointer-events:none}.pin{position:absolute;transform:translate(-50%,-50%);width:29px;height:29px;border:2px solid white;background:var(--walk);color:white;font-size:12px;font-weight:800;border-radius:50%;box-shadow:0 2px 7px #0004;pointer-events:auto;padding:0}.pin.hotel{background:var(--ink);border-radius:8px;width:33px;height:33px}.pin.outer{background:#ba8120}.pin.rail{background:var(--rail);width:21px;height:21px;font-size:9px}.pin.selected{outline:4px solid #e6b13b90;z-index:2}.pinlabel{position:absolute;left:34px;top:-5px;display:block;font-size:11px;color:var(--ink);background:#fffffff2;padding:5px 7px;border-radius:5px;white-space:nowrap;box-shadow:0 1px 5px #0002;pointer-events:none;border:1px solid #d8dedb;line-height:1.25;text-align:left}.pinlabel small{display:block;font-size:9px;font-weight:500;color:var(--muted);margin-top:2px}.zoom{position:absolute;top:12px;right:12px;z-index:5;box-shadow:0 1px 7px #0002;border-radius:8px;overflow:hidden}.zoom button{display:block;width:33px;height:33px;border:0;border-bottom:1px solid var(--line);background:white;font-size:22px;line-height:1}.north{position:absolute;left:12px;top:12px;z-index:3;background:#fffffff0;border-radius:6px;padding:4px 8px;font-size:11px;font-weight:800}.attribution{position:absolute;right:0;bottom:0;z-index:5;background:#ffffffe8;font-size:9px;padding:3px 5px;cursor:auto}.scale{position:absolute;left:12px;bottom:16px;z-index:3;font-size:10px;background:#ffffffe0;padding:3px 6px;border-bottom:3px solid var(--ink);height:25px;white-space:nowrap}.tilewarn{position:absolute;top:55px;left:12px;right:55px;z-index:3;background:#fff5daed;border:1px solid #e4d6ac;border-radius:8px;font-size:11px;padding:9px 11px;display:none;cursor:auto}.tilewarn.visible{display:block}.popup{position:absolute;z-index:7;bottom:36px;left:16px;right:16px;max-width:400px;background:white;border:1px solid var(--line);box-shadow:0 6px 18px #0002;padding:14px;border-radius:12px;display:none;cursor:auto}.popup.visible{display:block}.popup b{display:block;padding-right:24px}.popup small{color:var(--muted);display:block}.popup p{font-size:12px;margin:7px 0}.popup .close{position:absolute;top:8px;right:8px;background:none;border:0;font-size:20px}.legend{padding:11px 16px;display:flex;gap:16px;flex-wrap:wrap;font-size:10px;color:var(--muted);border-top:1px solid var(--line)}.linekey{display:inline-block;width:21px;margin-right:5px;vertical-align:middle;border-top:3px solid var(--walk)}.linekey.rail{border-top:3px dashed var(--rail)}.linekey.plan{border-top:3px dotted var(--pending)}.status{background:#f5f8f5;padding:10px 16px;font-size:11px;line-height:1.5;color:var(--muted);border-top:1px solid var(--line)}.sidebar{display:flex;flex-direction:column;gap:12px}.card{padding:19px;border-radius:15px;border:1px solid var(--line);background:white;box-shadow:var(--shadow)}.card h2{font-size:25px;line-height:1.25;letter-spacing:-.025em;margin:9px 0}.card h3{font-size:15px;margin-bottom:8px}.card p{overflow-wrap:anywhere;font-size:13px;color:var(--muted)}.stats{display:flex;gap:9px;margin-top:14px}.stats div{background:#f4f6f2;border-radius:8px;padding:9px;flex:1;font-size:11px;color:var(--muted)}.stats b{display:block;color:var(--ink);font-size:12px}.callout{border-left:3px solid var(--gold);padding:10px 12px;background:#f8f2e5;margin-top:13px;font-size:12px;color:#6d613e;border-radius:0 7px 7px 0}.journey{border:1px solid #d6d7e8;background:#f6f5fb}.journey .routetext{font-size:12px;color:#555373}.journey .estimate{font-size:19px;font-weight:800;color:#555373;margin:4px 0}.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}.linkbtn{display:inline-block;border:1px solid #bdcec7;background:#fff;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:700;color:var(--walk);text-decoration:none}.linkbtn.primary{background:var(--walk);border-color:var(--walk);color:white}.linkbtn.rail{color:#56528d;border-color:#cecae2}.routehead{display:flex;align-items:center;gap:8px;margin-bottom:7px}.mode{font-size:10px;font-weight:800;color:white;background:var(--walk);padding:3px 6px;border-radius:5px}.mode.transit{background:var(--rail)}.routehead h3{font-size:13px;margin:0}.pathstate{font-size:10px;margin:5px 0;color:#8d632d}.stoplist{list-style:none;padding:0;margin:12px 0}.stoplist li{position:relative;padding:0 0 13px 32px;border-left:1px solid #dce5de;margin-left:11px}.stoplist li:last-child{border-left-color:transparent;padding-bottom:0}.stopnum{position:absolute;left:-11px;top:0;border:0;border-radius:50%;width:22px;height:22px;background:#e3f0e7;color:var(--walk);font-size:10px;font-weight:800;padding:0}.stoplist .jp{font-size:12px;font-weight:700;line-height:1.3}.stoplist .en{font-size:10px;color:var(--muted);line-height:1.3;margin-top:2px}.steplink{display:inline-block;margin-top:5px;font-size:10px}.warn{font-size:11px;color:#8c682c}.block-note{font-size:11px;color:var(--muted);line-height:1.5}.overview-list{display:flex;flex-direction:column;gap:8px}.overview-item{background:#f6f8f4;border-radius:9px;border:1px solid #e3e9e1;text-align:left;padding:11px;display:flex;align-items:center;gap:11px;width:100%}.overview-item .number{font-size:12px;background:var(--walk);color:white;border-radius:7px;padding:6px;min-width:31px;text-align:center}.overview-item .number.outer{background:#b7832f}.overview-item b{display:block;font-size:12px}.overview-item small{font-size:10px;color:var(--muted)}.control-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.control-row button{font-size:11px;padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:#f6f8f4}.control-row button.active{color:white;background:var(--walk)}.sources{font-size:11px}.sources a{display:block;padding:4px 0}.compare{margin-top:22px;background:white;border:1px solid var(--line);border-radius:17px;padding:22px}.compare h2{font-size:22px;margin-bottom:5px}.compare>p{font-size:12px;color:var(--muted)}.tablewrap{overflow:auto;margin-top:13px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}td:first-child{font-weight:700;min-width:150px}.bottomnotes{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:20px;font-size:12px;color:var(--muted)}.bottomnotes h3{font-size:13px;color:var(--ink);margin-bottom:6px}footer{font-size:10px;color:var(--muted);margin-top:20px;line-height:1.6}.mapfullscreen .mapcard{position:fixed;inset:12px;z-index:100;display:flex;flex-direction:column}.mapfullscreen .map{height:auto;flex:1}.mapfullscreen{overflow:hidden}.routeallnote{font-size:11px;color:var(--muted);padding:10px 0}.noscript{padding:20px;background:#fff0c2}.desktopnote{font-size:10px;color:var(--muted);margin-top:6px}
+@media(max-width:1000px){.shell{padding:18px}.workspace{grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr)}.map{height:520px}.brand{align-items:start}.basebox{min-width:240px}}
+@media(max-width:780px){.shell{padding:12px}.brand{display:block}.basebox{margin-top:16px;min-width:0}.workspace{display:block}.mapcard{position:relative;top:0;margin-bottom:14px}.map{height:440px}.mapheading{padding:15px}.mapheading h2{font-size:19px}.intro{flex-wrap:wrap}.sidebar{gap:12px}.bottomnotes{grid-template-columns:1fr}.compare{padding:16px}.daytab{min-width:83px}.mapfullscreen .mapcard{inset:5px}.pinlabel{font-size:10px}h1{font-size:32px}}
+@media print{.map,.tools,.tabbar,.linkbtn{display:none}.mapcard{position:relative}.workspace{display:block}.card{break-inside:avoid}.brand{display:block}}
+
+/* Meal planning additions */
+.pin.meal{background:#b54f30;border-radius:8px}.mealcard{border-color:#e4c4b3;background:#fffdf9}.mealcard h3{font-size:17px;line-height:1.35;margin-top:8px}.mealcard p{margin:8px 0}.mealstatus{display:inline-block;border-radius:5px;font-size:10px;letter-spacing:.06em;font-weight:800;padding:4px 7px;background:#f8e5d8;color:#944325}.mealstatus.optional{background:#edf1e4;color:#586b32}.mealstatus.backup{background:#edf0f1;color:#596a6d}.mealtime{font-size:11px;color:#996341;margin:5px 0 9px}.mealcheck{font-size:11px;line-height:1.6;color:#74614c;border-top:1px solid #ede2d5;margin-top:10px;padding-top:10px}.remembered{background:#faf6e8;border-style:dashed;border-color:#d7bf7e}.remembered input{width:100%;box-sizing:border-box;border:1px solid #ceccb9;border-radius:7px;padding:10px;margin:9px 0 0;font:inherit;font-size:12px;min-width:0}.remembered .save-status{font-size:11px;color:#536a52}.meal-mini{width:100%;display:block;padding:9px 10px;border:1px solid #e6ddce;background:#fffbf6;text-align:left;border-radius:8px;margin-top:7px}.meal-mini strong{display:block;font-size:12px}.meal-mini small{display:block;font-size:10px;color:#766b5d}.mealcard .actionbtn{border:1px solid #bccec3;background:#f0f5ed;padding:7px 10px;border-radius:8px;font-size:11px}.mealsummary{color:#69766b;font-size:12px;margin-top:7px}details.meal-details{font-size:12px;color:#627376;padding:11px 0 0}details.meal-details summary{cursor:pointer;font-weight:700;color:#253d39}details.meal-details p{font-size:12px;margin-top:7px}
+
+/* Optional shopping; the sightseeing route stays in control. */
+.pin.shop{background:#8b5276;border-radius:7px}.shopcard{background:#fffafd;border-color:#e6d5e0}.shopcard h3{font-size:17px;line-height:1.4;margin-top:7px}.shopcard p{margin-top:8px}.shoptag{font-size:10px;font-weight:800;color:#7c4668;background:#f3e7ee;border-radius:5px;padding:4px 7px;display:inline-block}.shopchoice{display:flex;flex-direction:column;gap:8px;margin-top:12px}.shopchoice label{font-size:12px;display:flex;gap:8px;align-items:flex-start}.shopchoice input{accent-color:#8b5276;margin-top:4px;flex-shrink:0}.shopcard select{width:100%;padding:9px;border:1px solid #dac5d3;border-radius:8px;background:#fff;color:#503947;margin-top:7px;font-size:12px}.shopcard .callout{background:#f3eaf0;border-color:#9c6b89;color:#634658}.shopcard .actions button{font:inherit;font-size:11px;background:#fff;border:1px solid #cbb3c0;padding:7px 9px;border-radius:8px}.shopnotes{width:100%;min-height:130px;resize:vertical;padding:11px;border:1px solid #d9c5d2;border-radius:8px;font:12px/1.6 inherit;margin-top:9px}.shopmini{padding:11px;margin-top:9px;background:white;border:1px solid #eadce4;border-radius:9px}.shopmini b{display:block;font-size:12px}.shopmini small{font-size:11px;color:#725f6c}.shopmini .linkbtn{padding:5px 8px;font-size:10px}.shopgroup{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.shopgroup button{font-size:11px;padding:6px 8px;background:white;border:1px solid #d9c7d0;border-radius:8px}.shopgroup button.active{background:#8b5276;color:white}.shopcard details{font-size:11px;margin-top:10px}.shopcard summary{cursor:pointer}.shopcard details a{display:block;margin-top:6px}.shopwarning{font-size:11px;color:#765e30;border-left:3px solid #c29650;padding-left:10px;margin-top:10px}.shopstatus{font-size:11px;color:#59664e;margin-top:7px}.chipbutton{background:#8b5276!important;color:white!important}.shopempty{color:#627376;font-size:12px;margin-top:8px}
+
+/* V5: morning and café choices */
+.pin.cafe{background:#87623e;border-radius:9px}.cafecard{border-color:#ddc9ad;background:#fffdf7}.cafecard h3{font-size:17px;margin-top:8px}.cafecard p{margin-top:8px}.cafetag{display:inline-block;background:#f2e6cf;color:#815727;padding:4px 7px;font-size:10px;font-weight:800;border-radius:5px}.cafechoice{display:flex;gap:9px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #ede5d9;font-size:12px}.cafechoice input{margin-top:3px;accent-color:#87623e}.cafetime{font-size:11px;color:#775d43;margin-top:9px}.cafenote{font-size:11px;color:#6c6a62;padding-top:8px;line-height:1.6}.cafecard .actions button{font:inherit;font-size:11px;border:1px solid #ddc9ad;background:#fff;border-radius:7px;padding:7px 9px}.cafefilter{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.cafefilter button{border:1px solid #ddc9ad;background:white;border-radius:6px;padding:7px 9px;font-size:11px}.cafefilter button.active{background:#87623e;color:white}.cafefactgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.cafefactgrid>div{padding:12px;background:#f6efe0;border-radius:9px;font-size:11px}.cafefactgrid b{display:block;margin-bottom:4px}.cafecard details{font-size:11px;margin-top:12px}.cafecard details a{display:block;margin-top:5px}.cafecard summary{cursor:pointer}.cafecheck{font-size:11px;padding:10px;background:#f5f2ec;border-radius:8px;margin-top:12px}.card{min-width:0}.cafemobiletext{overflow-wrap:anywhere}
+
+.daytab{flex:0 0 auto;min-width:100px}.daytab span{max-width:142px;overflow:hidden;text-overflow:ellipsis}.tabbar{gap:7px}
+.queuetimeline{margin:14px 0;display:grid;gap:0}.queuetimeline>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;border-top:1px solid #eadbd0;padding:11px 0;font-size:12px}.queuetimeline b{color:#924b31;font-size:11px}.queuetimeline span{color:#5e6a68}.queuecard h3{font-size:22px}.queuecard label{align-items:flex-start;line-height:1.5}.queuecard details{margin-top:8px}
+</style></head><body>
+<noscript><div class="noscript">This planner needs JavaScript for day tabs and routes. Open the HTML in a normal browser with JavaScript enabled.</div></noscript>
+<div class="shell">
+<header class="brand"><div><div class="eyebrow">Tokyo field notes / 02 — 12 December 2026</div><h1>東京、その先へ。<br>Walk, wander. Start with breakfast.</h1><p class="sub">One hotel, ten nights. City neighborhoods <em>and</em> suburban days, with meals you actually want.<br>Morning sets, pancakes, two priority ramen meals and optional drugstores on existing routes.</p></div><div class="basebox"><div class="smallcaps">Hotel base · no hotel changes</div><div class="segmented"><button data-base="nih">日本橋 <small>Nihombashi</small></button><button data-base="yot">四ツ谷 <small>Yotsuya</small></button></div><div id="basequote" class="basequote"></div></div></header>
+<div class="intro"><span class="badge gold">V6 · 瑞兆 REVISIT</span><span><strong>Dec 11:</strong> queue-aware katsudon lunch → relaxed shopping → 華火 dinner. The revisit is skippable; cafés, shops and all other days stay.</span></div>
+<nav class="tabbar" id="tabs" aria-label="Choose a trip day"></nav>
+<main class="workspace"><section class="mapcard"><div class="mapheading"><div><h2 id="maptitle">東京と郊外の位置関係</h2><p id="mapsub">The whole trip at a glance</p></div><span class="badge" id="mapbadge">OVERVIEW</span></div><div class="tools"><button class="tool active" id="fitlocal">Day area</button><button class="tool" id="fithotel">Include hotel / trains</button><button class="tool" id="showlabels">Labels: on</button><button class="tool" id="fullscreen">Expand map</button><button class="tool" id="retry">Reload map / paths</button></div>
+<div id="map" class="map" tabindex="0" aria-label="Interactive geographic map. Drag to pan, use plus or minus to zoom, or select a numbered stop."><div class="tiles" id="tiles"></div><svg class="overlay" id="overlay" xmlns="http://www.w3.org/2000/svg"></svg><div id="pins" class="pins"></div><div class="north">N ↑</div><div class="zoom"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button></div><div id="tilewarn" class="tilewarn">Street tiles could not load. The markers still show geographic positions, but this is <strong>not a street-navigation map</strong> until tiles load. Open the saved HTML in a browser with internet access, or use the directions buttons below.</div><div id="scale" class="scale"></div><div class="attribution">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></div><div id="popup" class="popup"></div></div>
+<div class="legend"><span>■ Rust = meals · ■ Plum = shops</span><span><i class="linekey"></i>Street-routed walk, when loaded</span><span><i class="linekey plan"></i>Walking order only, not street geometry</span><span><i class="linekey rail"></i>Train connections, not track alignments</span></div><div class="status" id="mapstatus" aria-live="polite"></div></section><aside id="sidebar" class="sidebar"></aside></main>
+<section class="compare"><div class="eyebrow">Location is not the same thing as atmosphere</div><h2>Which days are actually farther out?</h2><p>A quiet Tokyo neighborhood is not necessarily a suburb. These categories describe geography, not whether a place feels “authentic.”</p><div class="tablewrap"><table><thead><tr><th>Area</th><th>Geographic role</th><th>How the day works</th><th>Hotel effect</th></tr></thead><tbody><tr><td>本郷・根津・谷中<br>Hongo / Nezu / Yanaka</td><td>Inner-city Tokyo</td><td>One connected walk after a short rail journey.</td><td>Both bases work; 四ツ谷 has a useful 南北線 start.</td></tr><tr><td>清澄白河・門前仲町<br>Kiyosumi / Monzen-nakacho</td><td>Inner-city east Tokyo</td><td>Local walking; do not mistake quieter streets for long-distance travel.</td><td>日本橋 is particularly convenient.</td></tr><tr><td>高円寺<br>Koenji</td><td>Inner-west Tokyo, within the 23 wards</td><td>Local neighborhood; use a train from 吉祥寺.</td><td>四ツ谷 has easier westward access.</td></tr><tr><td>吉祥寺<br>Kichijoji</td><td>Outer-west Tokyo, outside the 23 wards</td><td>Train out, then park and local commercial streets.</td><td>Both work; a longer ride from 日本橋.</td></tr><tr><td>柏の葉<br>Kashiwa-no-ha</td><td>Suburban new town in 千葉県 Chiba</td><td>Via 秋葉原 + つくばエクスプレス, then a local loop.</td><td>日本橋 reduces the journey to 秋葉原.</td></tr><tr><td>横浜<br>Yokohama</td><td>A separate city in 神奈川県 Kanagawa</td><td>Full day trip. Still urban—not countryside.</td><td>Both work without another hotel.</td></tr></tbody></table></div><div class="bottomnotes"><div><h3>Two UTokyo visits, two different purposes</h3><strong>本郷キャンパス Hongo:</strong> ginkgo avenue toward 安田講堂 in inner Tokyo.<br><strong>柏キャンパス Kashiwa:</strong> optional research-campus edge on the suburban 柏の葉 day. Do not substitute one for the other.</div><div><h3>How to read the maps</h3>Numbers are the visit order, not a promise to visit everything. Gold dotted lines connect the planned stops until the walking service returns a street-following route. Purple dashed lines show rail connections schematically. Always follow local signs and live directions.</div></div></section>
+<footer>This is a downloadable HTML planner, not a hosted booking or navigation service. V8 retains the preferred V6 design and map provider; hosting over HTTPS is still needed for compliant map tile requests. This copy has NOT been published to GitHub. Meiji details checked Sep 22, 2026; Nov 4 reopening is planned, not verified as completed. All controls and trip data are contained in the file; map tiles and street routing need internet access. It requests no device location. Estimates include a reasonable walking / waiting allowance but are not departure-specific timetables. Hotel totals are your quotes, not newly checked rates. Restaurant and shop details checked September 20, 2026; December opening and availability are not guaranteed. Meal choices are plans, not reservations. Shop listings do not confirm exact-product inventory. Current promotions may change before December. Optional-shop selections and shopping notes can be saved in this browser. Some restaurant pins are approximate; named directions links locate the entrance. The unidentified shop is deliberately not pinned. Café details checked September 20, 2026; recheck December hours and dish availability. Cafés are optional plans, not reservations. Café map pins are approximate. Site revised September 2026. © OpenStreetMap contributors; walking route service: FOSSGIS / OSRM (routed-foot). Google Maps buttons use documented directions URLs, with walking and transit kept separate.</footer>
+</div><script id="tripdata" type="application/json">{
+  "places": {
+    "nih": {
+      "id": "nih",
+      "jp": "東急ステイ日本橋",
+      "en": "Tokyu Stay Nihombashi",
+      "lat": 35.69016,
+      "lon": 139.7751,
+      "note": "Hotel area; use the named destination link for the entrance.",
+      "query": "Tokyu Stay Nihombashi, 4-7-9 Nihonbashi Honcho, Chuo City, Tokyo"
+    },
+    "yot": {
+      "id": "yot",
+      "jp": "東急ステイ四谷",
+      "en": "Tokyu Stay Yotsuya",
+      "lat": 35.68655,
+      "lon": 139.72675,
+      "note": "Hotel area; use the named destination link for the entrance.",
+      "query": "Tokyu Stay Yotsuya, 2-1-3 Yotsuya, Shinjuku City, Tokyo"
+    },
+    "yotsuya": {
+      "id": "yotsuya",
+      "jp": "四ツ谷駅",
+      "en": "Yotsuya Station",
+      "lat": 35.6859,
+      "lon": 139.7302,
+      "note": "",
+      "query": "四ツ谷駅 Yotsuya Station, Japan"
+    },
+    "kanda": {
+      "id": "kanda",
+      "jp": "神田駅",
+      "en": "Kanda Station",
+      "lat": 35.6917,
+      "lon": 139.7709,
+      "note": "",
+      "query": "神田駅 Kanda Station, Japan"
+    },
+    "shinnih": {
+      "id": "shinnih",
+      "jp": "新日本橋駅",
+      "en": "Shin-Nihombashi Station",
+      "lat": 35.6885,
+      "lon": 139.7733,
+      "note": "",
+      "query": "新日本橋駅 Shin-Nihombashi Station, Japan"
+    },
+    "mitsukoshi": {
+      "id": "mitsukoshi",
+      "jp": "三越前駅",
+      "en": "Mitsukoshimae Station",
+      "lat": 35.6862,
+      "lon": 139.7731,
+      "note": "",
+      "query": "三越前駅 Mitsukoshimae Station, Japan"
+    },
+    "koden": {
+      "id": "koden",
+      "jp": "小伝馬町駅",
+      "en": "Kodemmacho Station",
+      "lat": 35.6909,
+      "lon": 139.7783,
+      "note": "",
+      "query": "小伝馬町駅 Kodemmacho Station, Japan"
+    },
+    "akiba": {
+      "id": "akiba",
+      "jp": "秋葉原駅",
+      "en": "Akihabara Station",
+      "lat": 35.6984,
+      "lon": 139.7731,
+      "note": "",
+      "query": "秋葉原駅 Akihabara Station, Japan"
+    },
+    "tokyo": {
+      "id": "tokyo",
+      "jp": "東京駅",
+      "en": "Tokyo Station",
+      "lat": 35.6812,
+      "lon": 139.7671,
+      "note": "",
+      "query": "東京駅 Tokyo Station, Japan"
+    },
+    "ochanomizu": {
+      "id": "ochanomizu",
+      "jp": "御茶ノ水駅",
+      "en": "Ochanomizu Station",
+      "lat": 35.6996,
+      "lon": 139.7651,
+      "note": "",
+      "query": "御茶ノ水駅 Ochanomizu Station, Japan"
+    },
+    "hongo": {
+      "id": "hongo",
+      "jp": "東京大学 正門",
+      "en": "UTokyo Hongo Main Gate",
+      "lat": 35.7128,
+      "lon": 139.7595,
+      "note": "Start of the university visit. Follow gate notices; do not enter restricted teaching or research buildings.",
+      "query": "東京大学 本郷キャンパス 正門 Tokyo"
+    },
+    "ginkgo": {
+      "id": "ginkgo",
+      "jp": "東京大学 銀杏並木",
+      "en": "UTokyo Hongo Ginkgo Avenue",
+      "lat": 35.71315,
+      "lon": 139.7606,
+      "note": "The ginkgo stop you remembered. This is 本郷 Hongo, NOT 柏 Kashiwa. Early-December foliage is weather-dependent.",
+      "query": "東京大学 本郷キャンパス 銀杏並木 Tokyo"
+    },
+    "yasuda": {
+      "id": "yasuda",
+      "jp": "安田講堂",
+      "en": "Yasuda Auditorium",
+      "lat": 35.7134,
+      "lon": 139.7619,
+      "note": "Exterior at the end of the ginkgo avenue. This is an active university, not an unrestricted indoor attraction.",
+      "query": "安田講堂 Yasuda Auditorium, Japan"
+    },
+    "hongosta": {
+      "id": "hongosta",
+      "jp": "本郷三丁目駅",
+      "en": "Hongo-sanchome Station",
+      "lat": 35.7075,
+      "lon": 139.7598,
+      "note": "",
+      "query": "本郷三丁目駅 Hongo-sanchome Station, Japan"
+    },
+    "todaimae": {
+      "id": "todaimae",
+      "jp": "東大前駅",
+      "en": "Todaimae Station",
+      "lat": 35.7175,
+      "lon": 139.758,
+      "note": "",
+      "query": "東大前駅 Todaimae Station, Japan"
+    },
+    "nezu": {
+      "id": "nezu",
+      "jp": "根津神社",
+      "en": "Nezu Shrine",
+      "lat": 35.7202,
+      "lon": 139.7608,
+      "note": "Continue into neighborhood streets rather than treating the shrine as the whole district.",
+      "query": "根津神社 Nezu Shrine, Japan"
+    },
+    "sendagi": {
+      "id": "sendagi",
+      "jp": "千駄木駅",
+      "en": "Sendagi Station",
+      "lat": 35.7255,
+      "lon": 139.7633,
+      "note": "",
+      "query": "千駄木駅 Sendagi Station, Japan"
+    },
+    "yanaka": {
+      "id": "yanaka",
+      "jp": "谷中銀座",
+      "en": "Yanaka Ginza",
+      "lat": 35.7276,
+      "lon": 139.7658,
+      "note": "A short shopping street; leave time for surrounding lanes.",
+      "query": "谷中銀座 Yanaka Ginza, Japan"
+    },
+    "nippori": {
+      "id": "nippori",
+      "jp": "日暮里駅",
+      "en": "Nippori Station",
+      "lat": 35.7282,
+      "lon": 139.7707,
+      "note": "",
+      "query": "日暮里駅 Nippori Station, Japan"
+    },
+    "komagome": {
+      "id": "komagome",
+      "jp": "駒込駅",
+      "en": "Komagome Station",
+      "lat": 35.7364,
+      "lon": 139.7474,
+      "note": "",
+      "query": "駒込駅 Komagome Station, Japan"
+    },
+    "rikugien": {
+      "id": "rikugien",
+      "jp": "六義園 正門",
+      "en": "Rikugien Main Entrance",
+      "lat": 35.7319,
+      "lon": 139.7477,
+      "note": "Garden visit is the anchor. Internal garden wandering is additional to the street route. No 2026 illumination date is assumed.",
+      "query": "六義園 正門 Tokyo"
+    },
+    "sugamojizo": {
+      "id": "sugamojizo",
+      "jp": "巣鴨地蔵通り",
+      "en": "Sugamo Jizo-dori",
+      "lat": 35.7375,
+      "lon": 139.7355,
+      "note": "",
+      "query": "巣鴨地蔵通り Sugamo Jizo-dori, Japan"
+    },
+    "sugamo": {
+      "id": "sugamo",
+      "jp": "巣鴨駅",
+      "en": "Sugamo Station",
+      "lat": 35.7335,
+      "lon": 139.7394,
+      "note": "",
+      "query": "巣鴨駅 Sugamo Station, Japan"
+    },
+    "kagura": {
+      "id": "kagura",
+      "jp": "神楽坂",
+      "en": "Kagurazaka",
+      "lat": 35.7018,
+      "lon": 139.7394,
+      "note": "",
+      "query": "神楽坂 Kagurazaka, Japan"
+    },
+    "iidabashi": {
+      "id": "iidabashi",
+      "jp": "飯田橋駅",
+      "en": "Iidabashi Station",
+      "lat": 35.7021,
+      "lon": 139.745,
+      "note": "",
+      "query": "飯田橋駅 Iidabashi Station, Japan"
+    },
+    "gyoen": {
+      "id": "gyoen",
+      "jp": "新宿御苑 新宿門",
+      "en": "Shinjuku Gyoen — Shinjuku Gate",
+      "lat": 35.6888,
+      "lon": 139.7067,
+      "note": "Walk inside the garden at your own pace; the street directions start/end at its entrance.",
+      "query": "新宿御苑 新宿門 Tokyo"
+    },
+    "gyoensta": {
+      "id": "gyoensta",
+      "jp": "新宿御苑前駅",
+      "en": "Shinjuku-gyoemmae Station",
+      "lat": 35.6886,
+      "lon": 139.71,
+      "note": "",
+      "query": "新宿御苑前駅 Shinjuku-gyoemmae Station, Japan"
+    },
+    "sanchome": {
+      "id": "sanchome",
+      "jp": "新宿三丁目駅",
+      "en": "Shinjuku-sanchome Station",
+      "lat": 35.6906,
+      "lon": 139.7047,
+      "note": "",
+      "query": "新宿三丁目駅 Shinjuku-sanchome Station, Japan"
+    },
+    "hanazono": {
+      "id": "hanazono",
+      "jp": "花園神社",
+      "en": "Hanazono Shrine",
+      "lat": 35.6934,
+      "lon": 139.7065,
+      "note": "",
+      "query": "花園神社 Hanazono Shrine, Japan"
+    },
+    "omoide": {
+      "id": "omoide",
+      "jp": "思い出横丁",
+      "en": "Omoide Yokocho",
+      "lat": 35.6936,
+      "lon": 139.6996,
+      "note": "Optional dinner stop, not a required nightlife itinerary.",
+      "query": "思い出横丁 Omoide Yokocho, Japan"
+    },
+    "shinjuku": {
+      "id": "shinjuku",
+      "jp": "新宿駅",
+      "en": "Shinjuku Station",
+      "lat": 35.6909,
+      "lon": 139.7003,
+      "note": "",
+      "query": "新宿駅 Shinjuku Station, Japan"
+    },
+    "kichijoji": {
+      "id": "kichijoji",
+      "jp": "吉祥寺駅",
+      "en": "Kichijoji Station",
+      "lat": 35.7032,
+      "lon": 139.5798,
+      "note": "",
+      "query": "吉祥寺駅 Kichijoji Station, Japan"
+    },
+    "inokashira": {
+      "id": "inokashira",
+      "jp": "井の頭恩賜公園",
+      "en": "Inokashira Park",
+      "lat": 35.7002,
+      "lon": 139.5741,
+      "note": "Pond-side wandering plus local streets. Not a walk all the way to Koenji.",
+      "query": "井の頭恩賜公園 Inokashira Park, Japan"
+    },
+    "nakamichi": {
+      "id": "nakamichi",
+      "jp": "中道通り",
+      "en": "Nakamichi-dori",
+      "lat": 35.7044,
+      "lon": 139.5762,
+      "note": "Browse the shops around the western side of the station.",
+      "query": "中道通り Nakamichi-dori, Japan"
+    },
+    "koenji": {
+      "id": "koenji",
+      "jp": "高円寺駅",
+      "en": "Koenji Station",
+      "lat": 35.7054,
+      "lon": 139.6497,
+      "note": "",
+      "query": "高円寺駅 Koenji Station, Japan"
+    },
+    "pal": {
+      "id": "pal",
+      "jp": "高円寺パル商店街",
+      "en": "Koenji Pal Shopping Street",
+      "lat": 35.7037,
+      "lon": 139.6494,
+      "note": "",
+      "query": "高円寺パル商店街 Koenji Pal Shopping Street, Japan"
+    },
+    "kiyosumista": {
+      "id": "kiyosumista",
+      "jp": "清澄白河駅",
+      "en": "Kiyosumi-shirakawa Station",
+      "lat": 35.6821,
+      "lon": 139.7989,
+      "note": "",
+      "query": "清澄白河駅 Kiyosumi-shirakawa Station, Japan"
+    },
+    "kiyosumi": {
+      "id": "kiyosumi",
+      "jp": "清澄庭園",
+      "en": "Kiyosumi Gardens",
+      "lat": 35.6804,
+      "lon": 139.7978,
+      "note": "",
+      "query": "清澄庭園 Kiyosumi Gardens, Japan"
+    },
+    "fukagawa": {
+      "id": "fukagawa",
+      "jp": "深川不動堂",
+      "en": "Fukagawa Fudodo",
+      "lat": 35.6717,
+      "lon": 139.7971,
+      "note": "",
+      "query": "深川不動堂 Fukagawa Fudodo, Japan"
+    },
+    "tomioka": {
+      "id": "tomioka",
+      "jp": "富岡八幡宮",
+      "en": "Tomioka Hachimangu",
+      "lat": 35.6716,
+      "lon": 139.7997,
+      "note": "",
+      "query": "富岡八幡宮 Tomioka Hachimangu, Japan"
+    },
+    "monzen": {
+      "id": "monzen",
+      "jp": "門前仲町駅",
+      "en": "Monzen-nakacho Station",
+      "lat": 35.6726,
+      "lon": 139.7954,
+      "note": "",
+      "query": "門前仲町駅 Monzen-nakacho Station, Japan"
+    },
+    "nihonbashista": {
+      "id": "nihonbashista",
+      "jp": "日本橋駅",
+      "en": "Nihombashi Station",
+      "lat": 35.6827,
+      "lon": 139.7745,
+      "note": "",
+      "query": "日本橋駅 Nihombashi Station, Japan"
+    },
+    "nihonbridge": {
+      "id": "nihonbridge",
+      "jp": "日本橋",
+      "en": "Nihombashi Bridge",
+      "lat": 35.6841,
+      "lon": 139.7745,
+      "note": "",
+      "query": "日本橋 Nihombashi Bridge, Japan"
+    },
+    "coredo": {
+      "id": "coredo",
+      "jp": "コレド室町",
+      "en": "COREDO Muromachi",
+      "lat": 35.6872,
+      "lon": 139.7745,
+      "note": "",
+      "query": "コレド室町 COREDO Muromachi, Japan"
+    },
+    "yokohama": {
+      "id": "yokohama",
+      "jp": "横浜駅",
+      "en": "Yokohama Station",
+      "lat": 35.4659,
+      "lon": 139.622,
+      "note": "",
+      "query": "横浜駅 Yokohama Station, Japan"
+    },
+    "nihonodori": {
+      "id": "nihonodori",
+      "jp": "日本大通り駅",
+      "en": "Nihon-odori Station",
+      "lat": 35.4469,
+      "lon": 139.6426,
+      "note": "",
+      "query": "日本大通り駅 Nihon-odori Station, Japan"
+    },
+    "boulevard": {
+      "id": "boulevard",
+      "jp": "日本大通り",
+      "en": "Nihon-odori Ginkgo Boulevard",
+      "lat": 35.4457,
+      "lon": 139.6411,
+      "note": "Separate from 日本橋 Nihombashi in Tokyo. Foliage is a bonus, not a guarantee.",
+      "query": "日本大通り Nihon-odori Ginkgo Boulevard, Japan"
+    },
+    "yamashita": {
+      "id": "yamashita",
+      "jp": "山下公園",
+      "en": "Yamashita Park",
+      "lat": 35.4452,
+      "lon": 139.6496,
+      "note": "",
+      "query": "山下公園 Yamashita Park, Japan"
+    },
+    "motomachi": {
+      "id": "motomachi",
+      "jp": "横浜元町商店街",
+      "en": "Yokohama Motomachi",
+      "lat": 35.4399,
+      "lon": 139.6501,
+      "note": "",
+      "query": "横浜元町商店街 Yokohama Motomachi, Japan"
+    },
+    "chinatown": {
+      "id": "chinatown",
+      "jp": "横浜中華街",
+      "en": "Yokohama Chinatown",
+      "lat": 35.4432,
+      "lon": 139.646,
+      "note": "",
+      "query": "横浜中華街 Yokohama Chinatown, Japan"
+    },
+    "motostation": {
+      "id": "motostation",
+      "jp": "元町・中華街駅",
+      "en": "Motomachi-Chukagai Station",
+      "lat": 35.4423,
+      "lon": 139.6508,
+      "note": "",
+      "query": "元町・中華街駅 Motomachi-Chukagai Station, Japan"
+    },
+    "jim": {
+      "id": "jim",
+      "jp": "神保町駅",
+      "en": "Jimbocho Station",
+      "lat": 35.6959,
+      "lon": 139.7578,
+      "note": "",
+      "query": "神保町駅 Jimbocho Station, Japan"
+    },
+    "yushima": {
+      "id": "yushima",
+      "jp": "湯島天満宮",
+      "en": "Yushima Tenmangu",
+      "lat": 35.7078,
+      "lon": 139.7682,
+      "note": "",
+      "query": "湯島天満宮 Yushima Tenmangu, Japan"
+    },
+    "kashista": {
+      "id": "kashista",
+      "jp": "柏の葉キャンパス駅",
+      "en": "Kashiwanoha-campus Station",
+      "lat": 35.8933,
+      "lon": 139.9525,
+      "note": "The Tsukuba Express station. 柏駅 Kashiwa Station is a different destination.",
+      "query": "柏の葉キャンパス駅 Kashiwanoha-campus Station, Japan"
+    },
+    "udck": {
+      "id": "udck",
+      "jp": "柏の葉ゲートスクエア・UDCK",
+      "en": "Gate Square / UDCK",
+      "lat": 35.8944,
+      "lon": 139.9522,
+      "note": "Urban-design hub close to the station. Check current opening arrangements before an indoor visit.",
+      "query": "UDCK 柏の葉アーバンデザインセンター Kashiwa Chiba"
+    },
+    "kashipark": {
+      "id": "kashipark",
+      "jp": "千葉県立柏の葉公園",
+      "en": "Kashiwanoha Park",
+      "lat": 35.8972,
+      "lon": 139.9418,
+      "note": "Public park is a more reliable visitor anchor than university interiors.",
+      "query": "千葉県立柏の葉公園 Kashiwanoha Park, Japan"
+    },
+    "kashiu": {
+      "id": "kashiu",
+      "jp": "東京大学 柏キャンパス",
+      "en": "UTokyo Kashiwa Campus — edge",
+      "lat": 35.9009,
+      "lon": 139.9391,
+      "note": "OPTIONAL: campus edge / entrance only. Different from Hongo ginkgo. No promise of access to labs or buildings.",
+      "query": "東京大学 柏キャンパス 正門 Kashiwa Chiba"
+    },
+    "aqua": {
+      "id": "aqua",
+      "jp": "柏の葉アクアテラス",
+      "en": "Kashiwanoha Aqua Terrace",
+      "lat": 35.8993,
+      "lon": 139.9522,
+      "note": "Waterside public space beside T-SITE; slow down here.",
+      "query": "柏の葉アクアテラス Kashiwa Chiba"
+    },
+    "tsite": {
+      "id": "tsite",
+      "jp": "柏の葉T-SITE",
+      "en": "Kashiwanoha T-SITE",
+      "lat": 35.9,
+      "lon": 139.9528,
+      "note": "Bookshop-centered complex. A good anchor for the afternoon, given you enjoyed 代官山 T-SITE.",
+      "query": "柏の葉T-SITE Kashiwa Chiba"
+    },
+    "shibuya": {
+      "id": "shibuya",
+      "jp": "渋谷駅",
+      "en": "Shibuya Station",
+      "lat": 35.658,
+      "lon": 139.7016,
+      "note": "",
+      "query": "渋谷駅 Shibuya Station, Japan"
+    },
+    "loft": {
+      "id": "loft",
+      "jp": "渋谷ロフト",
+      "en": "Shibuya Loft",
+      "lat": 35.661,
+      "lon": 139.6999,
+      "note": "Your requested Loft revisit. This does not need to become a full shopping-district day.",
+      "query": "渋谷ロフト Shibuya Loft, Japan"
+    },
+    "daikan": {
+      "id": "daikan",
+      "jp": "代官山T-SITE",
+      "en": "Daikanyama T-SITE",
+      "lat": 35.6491,
+      "lon": 139.6997,
+      "note": "Optional familiar favorite; leave room to return to somewhere new instead.",
+      "query": "代官山T-SITE Daikanyama T-SITE, Japan"
+    },
+    "nakameguro": {
+      "id": "nakameguro",
+      "jp": "中目黒駅",
+      "en": "Nakameguro Station",
+      "lat": 35.6442,
+      "lon": 139.6991,
+      "note": "",
+      "query": "中目黒駅 Nakameguro Station, Japan"
+    },
+    "tenkaippin": {
+      "id": "tenkaippin",
+      "jp": "天下一品 新宿西口店",
+      "en": "Tenkaippin — Shinjuku West",
+      "lat": 35.6891,
+      "lon": 139.6976,
+      "query": "天下一品 新宿西口店 東京都新宿区西新宿1-15-10 エスアイシービル",
+      "note": "Priority meal on Dec 5: try こってり. This is the currently listed West Exit branch, not an old Shinjuku branch. Approximate map pin; use named walking directions for the entrance.",
+      "kind": "meal"
+    },
+    "hanabi": {
+      "id": "hanabi",
+      "jp": "辛麺華火 渋谷店",
+      "en": "Karamen Hanabi — Shibuya",
+      "lat": 35.66026,
+      "lon": 139.69936,
+      "query": "辛麺華火 渋谷店 東京都渋谷区宇田川町24-6 渋ビルヂング3F",
+      "note": "Priority spicy-noodle meal. Dec 11 dinner after the optional 瑞兆 lunch, not a second lunch. 3F at 宇田川町24-6. Confirm evening hours; the official branch page lists closures but not service times. Approximate pin; follow the named destination.",
+      "kind": "meal"
+    },
+    "yuei": {
+      "id": "yuei",
+      "jp": "だしと麺 遊泳",
+      "en": "Dashi to Men Yūei",
+      "lat": 35.6981406,
+      "lon": 139.6586411,
+      "query": "だしと麺 遊泳 東京都杉並区高円寺南1-6-5 高円寺サマリヤマンション104",
+      "note": "Optional only. Near 東高円寺, not JR高円寺. Weekend arrival-slot booking is required under the current system; no booking has been made.",
+      "kind": "meal"
+    },
+    "higashikoenji": {
+      "id": "higashikoenji",
+      "jp": "東高円寺駅",
+      "en": "Higashi-Koenji Station",
+      "lat": 35.69788,
+      "lon": 139.65767,
+      "query": "東高円寺駅 東京",
+      "note": "Marunouchi Line station near 遊泳; different from JR高円寺.",
+      "kind": "station"
+    },
+    "kasuga": {
+      "id": "kasuga",
+      "jp": "油そば 春日亭 神田店",
+      "en": "Kasugatei — Kanda",
+      "lat": 35.691037,
+      "lon": 139.769319,
+      "query": "油そば 春日亭 神田店 東京都千代田区内神田3-9-6",
+      "note": "Optional local backup, not a scheduled extra meal. Official address: 内神田3-9-6, near the west exit of 神田駅.",
+      "kind": "meal"
+    },
+    "welcia": {
+      "id": "welcia",
+      "jp": "ウエルシア薬局 日本橋1号店",
+      "en": "Welcia Nihombashi No.1 (B.B.O.N)",
+      "lat": 35.682382,
+      "lon": 139.773057,
+      "address": "東京都中央区日本橋2-1-10 柳屋ビル1階",
+      "note": "Optional stop near 日本橋駅, not right next to the hotel. Anua lists the chain, not confirmed stock of your exact serum.",
+      "query": "ウエルシア薬局 日本橋1号店, 東京都中央区日本橋2-1-10 柳屋ビル1階, Japan",
+      "category": "shop"
+    },
+    "ainz": {
+      "id": "ainz",
+      "jp": "アインズ＆トルペ 新宿東口店",
+      "en": "AINZ&TULPE Shinjuku East",
+      "lat": 35.69055,
+      "lon": 139.7014,
+      "address": "東京都新宿区新宿3-36-10 ミラザ新宿ビルB1F～2F",
+      "note": "Optional beauty browsing on Dec 5. Map pin is approximate; named directions locate the entrance. Anua partner chain, exact products unconfirmed.",
+      "query": "アインズ＆トルペ 新宿東口店, 東京都新宿区新宿3-36-10 ミラザ新宿ビルB1F～2F, Japan",
+      "category": "shop"
+    },
+    "cosme": {
+      "id": "cosme",
+      "jp": "@cosme STORE ルミネエスト新宿店",
+      "en": "@cosme STORE Lumine Est Shinjuku",
+      "lat": 35.6911,
+      "lon": 139.7007,
+      "address": "東京都新宿区新宿3-38-1 ルミネエスト新宿 B2F",
+      "note": "Alternative to AINZ&TULPE, not an extra compulsory stop. This branch lists both Anua and The Ordinary. Exact products/stock unconfirmed. Building-level pin; shop is on B2F.",
+      "query": "@cosme STORE ルミネエスト新宿店, 東京都新宿区新宿3-38-1 ルミネエスト新宿 B2F, Japan",
+      "category": "shop"
+    },
+    "daikokuwest": {
+      "id": "daikokuwest",
+      "jp": "ダイコクドラッグ 西新宿一丁目店",
+      "en": "Daikoku Drug Nishi-Shinjuku 1-chome",
+      "lat": 35.6889197,
+      "lon": 139.698592,
+      "address": "東京都新宿区西新宿1-18-1 小川ビル",
+      "note": "Optional price comparison near the planned 天下一品 meal. This is 大國藥妝 / Daikoku Drug. No verified Anua or The Ordinary stock.",
+      "query": "ダイコクドラッグ 西新宿一丁目店, 東京都新宿区西新宿1-18-1 小川ビル, Japan",
+      "category": "shop"
+    },
+    "matsuflag": {
+      "id": "matsuflag",
+      "jp": "マツモトキヨシ SHIBUYA SCRAMBLE FLAG",
+      "en": "Matsumoto Kiyoshi Shibuya Scramble Flag",
+      "lat": 35.6595,
+      "lon": 139.7001,
+      "address": "東京都渋谷区宇田川町22-3",
+      "note": "Optional stop on the 華火 / Loft day. Former 渋谷Part1店; renamed in the 2026 refurbishment. Approximate pin; use named directions for the entrance.",
+      "query": "マツモトキヨシ SHIBUYA SCRAMBLE FLAG, 東京都渋谷区宇田川町22-3, Japan",
+      "category": "shop"
+    },
+    "daikokuakiba": {
+      "id": "daikokuakiba",
+      "jp": "ダイコクドラッグ 秋葉原東口店",
+      "en": "Daikoku Drug Akihabara East",
+      "lat": 35.6982855,
+      "lon": 139.775182,
+      "address": "東京都千代田区神田佐久間町1-23 誠ビル",
+      "note": "Optional alternative on Dec 10, after returning from 柏の葉 via 秋葉原. Current branch page lists the 10th/25th 5%-off days with exclusions; December participation and your products must be checked.",
+      "query": "ダイコクドラッグ 秋葉原東口店, 東京都千代田区神田佐久間町1-23 誠ビル, Japan",
+      "category": "shop"
+    },
+    "komedaakiba": {
+      "jp": "コメダ珈琲店 アトレ秋葉原店",
+      "en": "Komeda Coffee — Atre Akihabara 2",
+      "lat": 35.69811,
+      "lon": 139.77461,
+      "address": "東京都千代田区神田花岡町1-9 アトレ秋葉原2・2F",
+      "note": "Morning until 11:00 with a paid drink. Atre Akihabara 2, NOT Atre 1. Shiro-Noir is Danish pastry with soft serve, not a soufflé pancake. Map position is approximate; named directions locate the entrance.",
+      "id": "komedaakiba",
+      "kind": "cafe",
+      "query": "コメダ珈琲店 アトレ秋葉原店, 東京都千代田区神田花岡町1-9 アトレ秋葉原2・2F, Japan"
+    },
+    "hoshinokanda": {
+      "jp": "星乃珈琲店 神田店",
+      "en": "Hoshino Coffee — Kanda",
+      "lat": 35.691,
+      "lon": 139.77135,
+      "address": "東京都千代田区鍛冶町2-1-3 保志場ビル2階",
+      "note": "Early morning sets, or a separate later visit for oven-baked soufflé pancakes. Ask which pancake dishes are available before 11:00. Map position is approximate; named directions locate the entrance.",
+      "id": "hoshinokanda",
+      "kind": "cafe",
+      "query": "星乃珈琲店 神田店, 東京都千代田区鍛冶町2-1-3 保志場ビル2階, Japan"
+    },
+    "coffeeen": {
+      "jp": "神田珈琲園 神田北口店",
+      "en": "Kanda Coffee-en — Kanda North",
+      "lat": 35.69308,
+      "lon": 139.77054,
+      "address": "東京都千代田区鍛冶町2-13-12",
+      "note": "An independent coffee shop, not a Komeda branch. Morning add-ons are served until 11:30; paid drink required. Check opening before a very early visit. Map position is approximate; named directions locate the entrance.",
+      "id": "coffeeen",
+      "kind": "cafe",
+      "query": "神田珈琲園 神田北口店, 東京都千代田区鍛冶町2-13-12, Japan"
+    },
+    "happykichi": {
+      "jp": "幸せのパンケーキ 吉祥寺店",
+      "en": "A Happy Pancake — Kichijoji",
+      "lat": 35.7044,
+      "lon": 139.5786,
+      "address": "東京都武蔵野市吉祥寺本町1-8-5 レンガ館モール301",
+      "note": "Fluffy pancakes. Current Sunday opening 10:00. Brunch on the default route, or later dessert if you select the Yūei ramen-lunch alternative. Map position is approximate; named directions locate the entrance.",
+      "id": "happykichi",
+      "kind": "cafe",
+      "query": "幸せのパンケーキ 吉祥寺店, 東京都武蔵野市吉祥寺本町1-8-5 レンガ館モール301, Japan"
+    },
+    "tamtam": {
+      "jp": "石釜 bake bread 茶房 TAM TAM",
+      "en": "Tam Tam — Jimbocho",
+      "lat": 35.69552,
+      "lon": 139.75833,
+      "address": "東京都千代田区神田神保町1-9 1F",
+      "note": "Stone-oven hotcakes / French toast. Opens 11:00; a brunch or afternoon café, NOT an early-breakfast stop. No reservations; optional on the free day. Map position is approximate; named directions locate the entrance.",
+      "id": "tamtam",
+      "kind": "cafe",
+      "query": "石釜 bake bread 茶房 TAM TAM, 東京都千代田区神田神保町1-9 1F, Japan"
+    },
+    "zuicho": {
+      "id": "zuicho",
+      "jp": "かつどん屋 瑞兆",
+      "en": "Katsudon-ya Zuicho — Shibuya",
+      "lat": 35.6622,
+      "lon": 139.6954,
+      "query": "かつどん屋 瑞兆 東京都渋谷区宇田川町41-26 パピエビル1F",
+      "address": "東京都渋谷区宇田川町41-26 パピエビル1F",
+      "note": "Your requested katsudon revisit in Shibuya, not the unidentified Nihombashi ramen shop. Optional Dec 11 lunch. Approximate pin: use the named directions link for the entrance. Walk-in listing; bring cash and check current hours.",
+      "kind": "meal"
+    },
+    "meiji": {
+      "id": "meiji",
+      "jp": "明治大学 スカイラウンジ暁",
+      "en": "Meiji University — Sky Lounge Akatsuki",
+      "lat": 35.6973981,
+      "lon": 139.7614543,
+      "address": "東京都千代田区神田駿河台1-1 明治大学リバティタワー17階",
+      "query": "スカイラウンジ暁 明治大学 リバティタワー17階 東京都千代田区神田駿河台1-1",
+      "kind": "meal",
+      "note": "Optional Dec 9 lunch. Liberty Tower 17F, Surugadai campus — not UTokyo. Temporarily closed for kitchen work; Meiji schedules reopening on Nov 4, 2026. Confirm reopening and visitor access before travel. Map pin locates the building, not an indoor route."
+    }
+  },
+  "bases": {
+    "nih": {
+      "label": "日本橋",
+      "en": "Nihombashi",
+      "quote": "¥230,000 / 10 nights",
+      "note": "Your familiar base. Strong for east Tokyo and getting to 秋葉原 for the 柏の葉 day. Hotel is near 新日本橋・小伝馬町・神田, not directly at 日本橋駅.",
+      "source": "https://www.tokyustay.co.jp/en/hotel/nihonbashi-tokyo/"
+    },
+    "yot": {
+      "label": "四ツ谷",
+      "en": "Yotsuya",
+      "quote": "¥220,000 / 10 nights",
+      "note": "Convenient for 新宿・吉祥寺 and direct 南北線 trips. No need to switch hotels halfway through.",
+      "source": "https://www.tokyustay.co.jp/en/hotel/yotsuya-shinjuku-tokyo/"
+    }
+  },
+  "days": [
+    {
+      "id": "02",
+      "dow": "Wed 水",
+      "jp": "到着・近所を知る",
+      "en": "Arrive & settle in",
+      "type": "Rest / arrival",
+      "desc": "One hotel for all ten nights. Check in, eat nearby, and learn your station exits. No sightseeing quota.",
+      "walk": "As little as you like",
+      "duration": "Easy evening",
+      "segments": [],
+      "access": {},
+      "tip": "Airport and flight times are not fixed here. Do not read an airport connection into the map.",
+      "sources": []
+    },
+    {
+      "id": "03",
+      "dow": "Thu 木",
+      "jp": "東大の銀杏 → 谷根千",
+      "en": "UTokyo ginkgo + old Tokyo",
+      "type": "Inner Tokyo",
+      "desc": "The ginkgo visit is explicitly 東京大学・本郷キャンパス. Then walk through 根津・千駄木・谷中. This is an inner-city day, not a suburban excursion.",
+      "walk": "Plan for 5–7 km with browsing",
+      "duration": "About 5–7 leisurely hours",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "hongo",
+            "ginkgo",
+            "yasuda"
+          ],
+          "title": "本郷キャンパスの銀杏 / Hongo ginkgo",
+          "note": "The avenue leading toward 安田講堂 is the main reason for this stop."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "yasuda",
+            "nezu",
+            "sendagi",
+            "yanaka",
+            "nippori"
+          ],
+          "title": "根津 → 千駄木 → 谷中 / Yanesen walk",
+          "note": "The street route is a framework; side streets and café stops are the experience."
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "30–45 min",
+          "text": "Walk to 神田 → JR中央線 to 御茶ノ水 → 丸ノ内線 to 本郷三丁目; walk to the main gate. Compare with other services in live directions.",
+          "nodes": [
+            "nih",
+            "kanda",
+            "ochanomizu",
+            "hongosta",
+            "hongo"
+          ]
+        },
+        "yot": {
+          "time": "25–35 min",
+          "text": "四ツ谷 → 南北線 to 東大前; walk south to the Hongo main gate.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "todaimae",
+            "hongo"
+          ]
+        }
+      },
+      "return": "nippori",
+      "returnText": "Return from 日暮里. To 日本橋: JR to 神田 and walk; to 四ツ谷: connect onto JR中央線 at 神田.",
+      "tip": "Keep this early in the trip. Gold leaves are weather-dependent, not guaranteed for Dec 3. Individual Hongo visits normally need no group registration; follow current gate and photography rules.",
+      "sources": [
+        "hongo",
+        "visit"
+      ]
+    },
+    {
+      "id": "04",
+      "dow": "Fri 金",
+      "jp": "六義園・巣鴨",
+      "en": "Garden + neighborhood streets",
+      "type": "Inner Tokyo",
+      "desc": "Give 六義園 a proper afternoon, with nearby 巣鴨 for food and shopping streets. 神楽坂 is an optional train hop, not the next block along the same walk.",
+      "walk": "About 3–5 km + garden paths",
+      "duration": "Half to full day",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "komagome",
+            "rikugien",
+            "sugamojizo",
+            "sugamo"
+          ],
+          "title": "六義園 → 巣鴨 / Local walk",
+          "note": "Allow extra time and distance inside the garden."
+        }
+      ],
+      "optionalRail": {
+        "mode": "transit",
+        "ids": [
+          "sugamo",
+          "iidabashi",
+          "kagura"
+        ],
+        "title": "Optional: 神楽坂 dinner",
+        "note": "三田線 to 春日, then 大江戸線 to 飯田橋 is one workable connection. Check live directions; do not walk the cross-city gap by default."
+      },
+      "access": {
+        "nih": {
+          "time": "30–40 min",
+          "text": "Walk to 神田; 山手線 toward 上野・駒込, then walk to 六義園.",
+          "nodes": [
+            "nih",
+            "kanda",
+            "komagome"
+          ]
+        },
+        "yot": {
+          "time": "25–35 min",
+          "text": "四ツ谷 → 南北線 direct to 駒込; walk to the main entrance.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "komagome"
+          ]
+        }
+      },
+      "return": "sugamo",
+      "returnText": "Return from 巣鴨, unless you add the optional 神楽坂 dinner.",
+      "tip": "The earlier claimed 2026 illumination dates are not treated as confirmed in this planner. The daytime garden works without them.",
+      "sources": [
+        "rikugien"
+      ]
+    },
+    {
+      "id": "05",
+      "dow": "Sat 土",
+      "jp": "新宿御苑・天下一品",
+      "en": "Shinjuku revisit + the thick-soup meal",
+      "type": "Inner Tokyo",
+      "desc": "Keep the one Shinjuku revisit: garden, east-side streets, then 天下一品 新宿西口店 for your こってり meal. No extra restaurant expedition.",
+      "walk": "About 3–6 km including the garden",
+      "duration": "Half-day + dinner",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "gyoen",
+            "sanchome",
+            "hanazono",
+            "omoide",
+            "tenkaippin",
+            "shinjuku"
+          ],
+          "title": "御苑 → 三丁目 → 思い出横丁 → 天下一品",
+          "note": "思い出横丁 is a brief walk-through, not another scheduled dinner. The last leg leads to 天下一品 on the west side of the station."
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "35–45 min",
+          "text": "神田 → JR中央線 to 御茶ノ水 → 丸ノ内線 to 新宿御苑前; walk to the open entrance.",
+          "nodes": [
+            "nih",
+            "kanda",
+            "ochanomizu",
+            "gyoensta",
+            "gyoen"
+          ]
+        },
+        "yot": {
+          "time": "15–25 min",
+          "text": "四ツ谷 → 丸ノ内線 to 新宿御苑前, then walk; walking from the hotel is another option.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "gyoensta",
+            "gyoen"
+          ]
+        }
+      },
+      "return": "shinjuku",
+      "returnText": "JR中央線 toward 四ツ谷 or 神田 makes the return simple.",
+      "tip": "Saturday can be busy. Finish whenever you have had enough; Kabukicho nightlife is not a requirement.",
+      "sources": [
+        "gyoen",
+        "tenkaippin",
+        "tenbrand"
+      ],
+      "meals": [
+        "tenkaippin"
+      ]
+    },
+    {
+      "id": "06",
+      "dow": "Sun 日",
+      "jp": "吉祥寺・井の頭・高円寺",
+      "en": "Western Tokyo, with a train in between",
+      "type": "Outer-west + inner-west",
+      "desc": "吉祥寺 is outside the 23 special wards. 高円寺 is nearer central Tokyo, on the way back. These are two walking areas connected by a train—not one continuous walk.",
+      "walk": "About 5–8 km, split into two walks",
+      "duration": "Full day, adjustable",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "kichijoji",
+            "inokashira",
+            "nakamichi",
+            "kichijoji"
+          ],
+          "title": "吉祥寺・井の頭 / Park and shopping streets",
+          "note": ""
+        },
+        {
+          "mode": "transit",
+          "ids": [
+            "kichijoji",
+            "koenji"
+          ],
+          "title": "TRAIN: 吉祥寺 → 高円寺",
+          "note": "On Sunday use a 中央・総武線 local service for 高円寺, or follow a live route with a transfer. 中央線 rapid trains normally skip 高円寺 on weekends."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "koenji",
+            "pal",
+            "koenji"
+          ],
+          "title": "高円寺 / Short evening loop",
+          "note": ""
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "45–55 min",
+          "text": "Walk to 神田 → JR中央線 rapid to 吉祥寺. Choose a service that stops there.",
+          "nodes": [
+            "nih",
+            "kanda",
+            "kichijoji"
+          ]
+        },
+        "yot": {
+          "time": "30–40 min",
+          "text": "Walk to 四ツ谷 → JR中央線 rapid to 吉祥寺.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "kichijoji"
+          ]
+        }
+      },
+      "return": "koenji",
+      "returnText": "Use a local train from 高円寺; change to a rapid where useful for 神田. To 四ツ谷 a local is also straightforward.",
+      "tip": "The longer geographic gap on this day is rail, not extra walking. You can stay in 吉祥寺 all afternoon and skip 高円寺.",
+      "sources": [
+        "kichijoji",
+        "koenji",
+        "jr",
+        "yuei",
+        "yueiguide"
+      ],
+      "meals": [
+        "yuei"
+      ],
+      "mealAlternative": {
+        "desc": "OPTIONAL 遊泳 version: start with a booked lunch near 東高円寺, walk around 高円寺, then train to 吉祥寺 for the park and shopping streets. This replaces—not adds to—the original sequence.",
+        "walk": "About 5–8 km split between two areas",
+        "segments": [
+          {
+            "mode": "walking",
+            "ids": [
+              "higashikoenji",
+              "yuei"
+            ],
+            "title": "Optional booked lunch / 東高円寺 → 遊泳",
+            "note": "Enable this route only if you choose the restaurant and secure an arrival slot. Arrive 15 minutes before it."
+          },
+          {
+            "mode": "walking",
+            "ids": [
+              "yuei",
+              "pal",
+              "koenji"
+            ],
+            "title": "Lunch → 高円寺の商店街",
+            "note": "Walk north toward JR高円寺, browsing along the way."
+          },
+          {
+            "mode": "transit",
+            "ids": [
+              "koenji",
+              "kichijoji"
+            ],
+            "title": "TRAIN: 高円寺 → 吉祥寺",
+            "note": "A Sunday 中央・総武線 local service is the simple option; check live directions."
+          },
+          {
+            "mode": "walking",
+            "ids": [
+              "kichijoji",
+              "inokashira",
+              "nakamichi",
+              "kichijoji"
+            ],
+            "title": "吉祥寺・井の頭 / Afternoon park and shops",
+            "note": "If the lunch slot is late, shorten shopping and visit the park while it is still light."
+          }
+        ],
+        "access": {
+          "nih": {
+            "time": "40–55 min",
+            "text": "Walk to 神田 → JR中央線 to 御茶ノ水 → 丸ノ内線 toward 荻窪, alight at 東高円寺. Use live directions for a better service if available.",
+            "nodes": [
+              "nih",
+              "kanda",
+              "ochanomizu",
+              "higashikoenji"
+            ]
+          },
+          "yot": {
+            "time": "25–35 min",
+            "text": "四ツ谷 → 丸ノ内線 toward 荻窪, alight at 東高円寺; short walk to 遊泳.",
+            "nodes": [
+              "yot",
+              "yotsuya",
+              "higashikoenji"
+            ]
+          }
+        },
+        "return": "kichijoji",
+        "returnText": "Return from 吉祥寺 on a JR中央線 service toward 四ツ谷 / 神田; choose a stopping pattern appropriate to your destination.",
+        "tip": "This is an optional alternative, not a booking. A late lunch may reduce park daylight; keep the default version if you prefer a spontaneous day."
+      }
+    },
+    {
+      "id": "07",
+      "dow": "Mon 月",
+      "jp": "清澄白河・門前仲町",
+      "en": "East-Tokyo garden, cafés and shrines",
+      "type": "Inner Tokyo",
+      "desc": "Keep the quieter eastern-Tokyo walk, with 日本橋 as the optional finish. Your remembered meat-topped ramen has a flexible slot here, but its name and hours are still unresolved.",
+      "walk": "About 3–5 km + garden wandering",
+      "duration": "Relaxed full day",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "kiyosumista",
+            "kiyosumi",
+            "fukagawa",
+            "tomioka",
+            "monzen"
+          ],
+          "title": "清澄白河 → 門前仲町",
+          "note": ""
+        },
+        {
+          "mode": "transit",
+          "ids": [
+            "monzen",
+            "nihonbashista"
+          ],
+          "title": "Optional finish: 日本橋",
+          "note": "東西線 connects 門前仲町 and 日本橋; this is a train hop, not compulsory walking."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "nihonbashista",
+            "nihonbridge",
+            "coredo"
+          ],
+          "title": "日本橋 / Optional dinner walk",
+          "note": ""
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "20–30 min",
+          "text": "Walk to 三越前 → 半蔵門線 to 清澄白河.",
+          "nodes": [
+            "nih",
+            "mitsukoshi",
+            "kiyosumista"
+          ]
+        },
+        "yot": {
+          "time": "35–45 min",
+          "text": "四ツ谷 → 丸ノ内線 to 大手町 → 半蔵門線 to 清澄白河.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "tokyo",
+            "kiyosumista"
+          ]
+        }
+      },
+      "return": "coredo",
+      "returnText": "日本橋 base: walk home from コレド室町. 四ツ谷 base: use the central JR/Metro network.",
+      "tip": "The remembered restaurant has no guessed map pin. Use it after the walk only if evening service is confirmed; otherwise use the optional Dec 9 lunch opportunity. Do not rearrange the day around an unidentified shop.",
+      "sources": [
+        "kiyosumi"
+      ],
+      "remembered": true
+    },
+    {
+      "id": "08",
+      "dow": "Tue 火",
+      "jp": "横浜 日帰り",
+      "en": "A different city, no hotel change",
+      "type": "Separate-city day trip",
+      "desc": "Train to 横浜, then walk the historic avenue and waterfront. This is genuinely outside Tokyo, although still a big-city day rather than countryside.",
+      "walk": "About 4–7 km, with optional detours",
+      "duration": "Full day",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "nihonodori",
+            "boulevard",
+            "yamashita"
+          ],
+          "title": "日本大通り → 山下公園",
+          "note": ""
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "yamashita",
+            "motomachi",
+            "chinatown",
+            "motostation"
+          ],
+          "title": "元町 → 中華街 / Dinner loop",
+          "note": ""
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "65–85 min",
+          "text": "新日本橋 → JR総武快速・横須賀線 through-service toward 横浜 (or change at 東京) → みなとみらい線 to 日本大通り.",
+          "nodes": [
+            "nih",
+            "shinnih",
+            "tokyo",
+            "yokohama",
+            "nihonodori"
+          ]
+        },
+        "yot": {
+          "time": "70–90 min",
+          "text": "四ツ谷 → JR中央線 to 東京 → 東海道線 to 横浜 → みなとみらい線 to 日本大通り.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "tokyo",
+            "yokohama",
+            "nihonodori"
+          ]
+        }
+      },
+      "return": "motostation",
+      "returnText": "Return from 元町・中華街 via 横浜. You return to the same Tokyo hotel.",
+      "tip": "A waterfront walk and a historic city are the reasons to come; any remaining ginkgo color is a bonus.",
+      "sources": [
+        "yokohama"
+      ]
+    },
+    {
+      "id": "09",
+      "dow": "Wed 水",
+      "jp": "自由日・もう一度行きたい所",
+      "en": "Keep one day genuinely open",
+      "type": "Flexible / rest",
+      "desc": "Keep the day flexible. Choose an optional Meiji cafeteria lunch near 御茶ノ水, the remembered 日本橋 ramen shop, or neither. Books and TAM TAM are optional extensions, not extra requirements.",
+      "walk": "Your choice",
+      "duration": "No quota",
+      "segments": [],
+      "optionalWalk": [
+        {
+          "mode": "walking",
+          "ids": [
+            "jim",
+            "ochanomizu",
+            "yushima"
+          ],
+          "title": "Optional: 神保町 → 御茶ノ水 → 湯島",
+          "note": "This replaces the former dedicated bookshop day; it is not required."
+        }
+      ],
+      "access": {},
+      "tip": "Meiji is a provisional option: confirm its planned Nov 4 reopening and public access. Aim for an early lunch around 11:00; the current Dec 9 schedule ends lunch-menu orders at 14:00. Choose this OR the remembered ramen for lunch. TAM TAM becomes an optional later sweet, not a second brunch.",
+      "sources": [
+        "meiji_dining",
+        "meiji_hours",
+        "meiji_access",
+        "meiji_fall"
+      ],
+      "remembered": true
+    },
+    {
+      "id": "10",
+      "dow": "Thu 木",
+      "jp": "柏の葉 キャンパスタウン",
+      "en": "The suburban new-town day you asked for",
+      "type": "Suburban day trip · 千葉県",
+      "desc": "A different urban pattern: station-centered new development, a public park, a research campus, waterside space and T-SITE. Not another central-Tokyo district.",
+      "walk": "Town loop ~2–3 km; full loop ~5–7 km",
+      "duration": "4–7 hours locally + trains",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "kashista",
+            "udck",
+            "kashipark"
+          ],
+          "title": "Station → Gate Square → public park",
+          "note": ""
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "kashipark",
+            "kashiu",
+            "aqua",
+            "tsite"
+          ],
+          "title": "Park → optional campus edge → Aqua Terrace → T-SITE",
+          "note": "University stop is exterior/edge only. Follow access signs; no laboratory visit is promised."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "tsite",
+            "kashista"
+          ],
+          "title": "T-SITE → station",
+          "note": ""
+        }
+      ],
+      "shortSegments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "kashista",
+            "udck",
+            "aqua",
+            "tsite",
+            "kashista"
+          ],
+          "title": "Short town loop / 駅・アクアテラス・T-SITE",
+          "note": "Skip the longer park/campus circuit; spend more time browsing and sitting by the water."
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "50–65 min",
+          "text": "Walk to 小伝馬町 → 日比谷線 to 秋葉原 → walk within the station complex to つくばエクスプレス → 柏の葉キャンパス.",
+          "nodes": [
+            "nih",
+            "koden",
+            "akiba",
+            "kashista"
+          ]
+        },
+        "yot": {
+          "time": "65–80 min",
+          "text": "四ツ谷 → 中央・総武線 local to 秋葉原 → transfer to つくばエクスプレス → 柏の葉キャンパス.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "ochanomizu",
+            "akiba",
+            "kashista"
+          ]
+        }
+      },
+      "return": "kashista",
+      "returnText": "Reverse the 秋葉原 / つくばエクスプレス connection. Do not navigate to 柏駅 by mistake.",
+      "tip": "Use a TX service that stops at 柏の葉キャンパス. The operator lists Local / Semi-Rapid / Commuter-Rapid, not ordinary Rapid. Hongo ginkgo and the Kashiwa campus are separate visits.",
+      "sources": [
+        "kashinavi",
+        "tx",
+        "tsite",
+        "kashipark",
+        "issp",
+        "smart"
+      ]
+    },
+    {
+      "id": "11",
+      "dow": "Fri 金",
+      "jp": "瑞兆・渋谷ロフト・華火",
+      "en": "A favorite lunch, relaxed browsing, spicy-noodle dinner",
+      "type": "Inner Tokyo / flexible",
+      "desc": "Optional 瑞兆 katsudon revisit at lunch, then Loft and only the drugstore browsing you still need. 華火 moves to dinner, subject to evening service. Leave spare time for the queue rather than adding a fixed afternoon attraction.",
+      "walk": "About 2–4 km locally; longer extension optional",
+      "duration": "Late morning → evening, with queue allowance",
+      "segments": [
+        {
+          "mode": "walking",
+          "ids": [
+            "shibuya",
+            "zuicho"
+          ],
+          "title": "Late morning: 渋谷駅 → 瑞兆",
+          "note": "Aim for around 11:00; listed opening is 11:30. Protect 1½–2 hours for queuing and eating, not a predicted wait. No shop detour before the queue."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "zuicho",
+            "loft"
+          ],
+          "title": "After lunch: 瑞兆 → 渋谷ロフト",
+          "note": "Shopping and short local walks fill the afternoon. You are not expected to eat again immediately after leaving 瑞兆."
+        },
+        {
+          "mode": "walking",
+          "ids": [
+            "loft",
+            "hanabi",
+            "shibuya"
+          ],
+          "title": "Evening: 華火 → 渋谷駅",
+          "note": "Dinner only after enough time between meals; verify Shibuya evening service. End back at Shibuya for the train home."
+        }
+      ],
+      "access": {
+        "nih": {
+          "time": "35–45 min",
+          "text": "Walk to 三越前 → 銀座線 direct to 渋谷. The 35–45 min allowance is hotel to the Shibuya area; allow another roughly 10–15 min to walk toward 瑞兆. The first walking block has directions.",
+          "nodes": [
+            "nih",
+            "mitsukoshi",
+            "shibuya"
+          ]
+        },
+        "yot": {
+          "time": "25–40 min",
+          "text": "四ツ谷 → JR中央線 to 新宿 → 山手線 to 渋谷, or compare Metro routes. The 25–40 min allowance ends in the Shibuya area; allow another roughly 10–15 min to reach 瑞兆.",
+          "nodes": [
+            "yot",
+            "yotsuya",
+            "shinjuku",
+            "shibuya"
+          ]
+        }
+      },
+      "return": "shibuya",
+      "returnText": "From 渋谷: 日本橋 base — 銀座線 to 三越前, then walk. 四ツ谷 base — JR via 新宿 or a suitable Metro connection. The route ends at Shibuya even when the optional southern walk is selected.",
+      "tip": "瑞兆 is a welcome revisit, not an obligation to queue indefinitely. Keep breakfast light by choice; no extra pancake brunch is added today. The 代官山・中目黒 extension is off by default. Dec 9 remains free; Dec 12 stays queue-free for the airport.",
+      "sources": [
+        "zuicho",
+        "loft",
+        "hanabi"
+      ],
+      "meals": [
+        "zuicho",
+        "hanabi"
+      ]
+    },
+    {
+      "id": "12",
+      "dow": "Sat 土",
+      "jp": "帰国・日曜は休む",
+      "en": "Fly home; keep Sunday for recovery",
+      "type": "Departure",
+      "desc": "Breakfast, an optional short local revisit, luggage collection, then the airport. No essential sight belongs on this day.",
+      "walk": "Minimal",
+      "duration": "Flight-dependent",
+      "segments": [],
+      "access": {},
+      "tip": "Add the actual airport, terminal and departure time once flights are booked. Leave a generous airport buffer; Sunday Dec 13 stays free at home.",
+      "sources": []
+    }
+  ],
+  "sources": {
+    "hongo": {
+      "title": "UTokyo — Hongo ginkgo avenue",
+      "url": "https://www.u-tokyo.ac.jp/en/whyutokyo/hongo_hi_002.html"
+    },
+    "visit": {
+      "title": "UTokyo — visitor and photography rules",
+      "url": "https://www.u-tokyo.ac.jp/en/general/visit_campuses.html"
+    },
+    "kashinavi": {
+      "title": "柏の葉 — official area / urban-design guide",
+      "url": "https://www.kashiwanoha-navi.jp/en"
+    },
+    "tx": {
+      "title": "Tsukuba Express — 柏の葉キャンパス station / stopping services",
+      "url": "https://www.mir.co.jp/en/howto/route_map/kashiwanoha-campus/"
+    },
+    "tsite": {
+      "title": "柏の葉T-SITE — official site",
+      "url": "https://store.tsite.jp/kashiwanoha/"
+    },
+    "kashipark": {
+      "title": "柏の葉公園 — official park information",
+      "url": "https://www.cue-net.or.jp/kouen/kasiwa/index.html"
+    },
+    "issp": {
+      "title": "University of Tokyo — access to Kashiwa campus",
+      "url": "https://www.issp.u-tokyo.ac.jp/maincontents/access_en.html"
+    },
+    "smart": {
+      "title": "柏の葉 Smart City — research / business / living",
+      "url": "https://www.kashiwanoha-smartcity.com/"
+    },
+    "kichijoji": {
+      "title": "GO TOKYO — 吉祥寺",
+      "url": "https://www.gotokyo.org/en/destinations/western-tokyo/kichijoji/index.html"
+    },
+    "koenji": {
+      "title": "GO TOKYO — 高円寺",
+      "url": "https://www.gotokyo.org/en/destinations/western-tokyo/koenji/index.html"
+    },
+    "jr": {
+      "title": "JR East — Tokyo network / current service information",
+      "url": "https://www.jreast.co.jp/multi/en/"
+    },
+    "rikugien": {
+      "title": "六義園 — official notices",
+      "url": "https://www.tokyo-park.or.jp/park/rikugien/"
+    },
+    "gyoen": {
+      "title": "新宿御苑 — official visitor information",
+      "url": "https://www.env.go.jp/garden/shinjukugyoen/english/"
+    },
+    "kiyosumi": {
+      "title": "清澄庭園 — official visitor information",
+      "url": "https://www.tokyo-park.or.jp/park/kiyosumi/"
+    },
+    "yokohama": {
+      "title": "Yokohama — official autumn guide",
+      "url": "https://www.yokohamajapan.com/article/yokohama-autumn-foliage/"
+    },
+    "loft": {
+      "title": "Loft — official store directory",
+      "url": "https://www.loft.co.jp/shop_list_en/"
+    },
+    "tenkaippin": {
+      "title": "天下一品 新宿西口店 — current branch listing (Tabelog)",
+      "url": "https://tabelog.com/tokyo/A1304/A130401/13315267/"
+    },
+    "tenbrand": {
+      "title": "天下一品 — official brand / shop finder",
+      "url": "https://www.tenkaippin.co.jp/"
+    },
+    "hanabi": {
+      "title": "辛麺華火 — official branch list and closure days",
+      "url": "https://www.karamen-hanabi-gs.com/access.html"
+    },
+    "yuei": {
+      "title": "だしと麺 遊泳 — venue booking rules on TableCheck",
+      "url": "https://www.tablecheck.com/en/shops/dashi-to-menyuei/reserve"
+    },
+    "yueiguide": {
+      "title": "だしと麺 遊泳 — location and noodles",
+      "url": "https://www.tablecheck.com/en/dashi-to-menyuei"
+    },
+    "kasuga": {
+      "title": "春日亭 神田店 — official access and hours",
+      "url": "https://kasugatei.com/map/kanda/"
+    },
+    "kohaku": {
+      "title": "宍道湖しじみ中華蕎麦 琥珀 — confirmed identity (not scheduled)",
+      "url": "https://kohaku-license.jp/cn/"
+    },
+    "anua_stockists": {
+      "title": "Anua Japan — retail partners; assortment varies by branch",
+      "url": "https://anuashop.jp/blogs/%E5%BA%97%E8%88%97%E6%83%85%E5%A0%B1"
+    },
+    "ainz_shinjuku": {
+      "title": "AINZ&TULPE — Shinjuku East official store",
+      "url": "https://ainz-tulpe.jp/blogs/shop/0140"
+    },
+    "cosme_shinjuku": {
+      "title": "@cosme — Lumine Est Shinjuku official store",
+      "url": "https://www.cosme.net/store/shop/lumine-shinjuku/"
+    },
+    "cosme_brands": {
+      "title": "@cosme Shinjuku — Anua and The Ordinary brand directory",
+      "url": "https://www.cosme.net/shop/lumine-shinjuku/brands/"
+    },
+    "welcia_nih": {
+      "title": "Welcia — Nihombashi No.1 official store",
+      "url": "https://store.welcia.co.jp/welcia/spot/detail?code=1270D"
+    },
+    "matsuflag": {
+      "title": "Matsumoto Kiyoshi — SHIBUYA SCRAMBLE FLAG store locator",
+      "url": "https://www.matsukiyococokara-online.com/map?kid=10000378"
+    },
+    "matsuflag_news": {
+      "title": "Matsukiyo Cocokara — 2026 flagship announcement / address",
+      "url": "https://prtimes.jp/main/html/rd/p/000000078.000031551.html"
+    },
+    "ddw": {
+      "title": "Daikoku Drug — Nishi-Shinjuku 1-chome store",
+      "url": "https://daikokudrug.com/store/353/"
+    },
+    "dda": {
+      "title": "Daikoku Drug — Akihabara East store",
+      "url": "https://daikokudrug.com/store/621/"
+    },
+    "ddsale": {
+      "title": "Daikoku Drug — monthly sales and exclusions",
+      "url": "https://daikokudrug.com/service/sale/"
+    },
+    "komeda_morning": {
+      "title": "Komeda — morning service and choices",
+      "url": "https://www.komeda.co.jp/menu/morning_komeda.html"
+    },
+    "komeda_atre": {
+      "title": "Atre — Komeda Akihabara 2 / hours and floor",
+      "url": "https://www.atre.co.jp/akihabara/shop/8911/"
+    },
+    "komeda_menu": {
+      "title": "Komeda — menu (branch assortments and prices vary)",
+      "url": "https://www.komeda.co.jp/menu/"
+    },
+    "hoshino_stores": {
+      "title": "Hoshino — official Kanda branch hours",
+      "url": "https://www.hoshinocoffee.com/shop.html"
+    },
+    "hoshino_menu": {
+      "title": "Hoshino — morning dishes and oven-baked soufflé pancakes",
+      "url": "https://www.hoshinocoffee.com/menu.html"
+    },
+    "coffeeen_menu": {
+      "title": "Kanda Coffee-en — morning add-ons and prices",
+      "url": "https://www.kanda-coffee-en.com/menu.html"
+    },
+    "coffeeen_shop": {
+      "title": "Kanda Coffee-en — official address and information",
+      "url": "https://www.kanda-coffee-en.com/"
+    },
+    "happy_shops": {
+      "title": "A Happy Pancake — Kichijoji hours / address",
+      "url": "https://magia.tokyo/shop"
+    },
+    "happy_about": {
+      "title": "A Happy Pancake — preparation and pancakes",
+      "url": "https://magia.tokyo/about"
+    },
+    "tamtam": {
+      "title": "Tam Tam — operator-maintained Tabelog listing / hours",
+      "url": "https://tabelog.com/tokyo/A1310/A131003/13174159/"
+    },
+    "zuicho": {
+      "title": "瑞兆 — Tabelog listing: address, hours, walk-in / cash (not an official restaurant site)",
+      "url": "https://tabelog.com/tokyo/A1303/A130301/13161530/"
+    },
+    "meiji_dining": {
+      "title": "Meiji University — cafeteria, renovation closure and planned Nov 4 reopening",
+      "url": "https://www.meiji.ac.jp/koho/studentsservice/dining/di_surugadai.html"
+    },
+    "meiji_access": {
+      "title": "Meiji University Museum FAQ — public visitors may use Sky Lounge Akatsuki",
+      "url": "https://www.meiji.ac.jp/museum/faq_answer.html"
+    },
+    "meiji_hours": {
+      "title": "Meiji University — latest campus dining schedules / reopening notices",
+      "url": "https://www.meiji.ac.jp/koho/studentsservice/hour/hour.html"
+    },
+    "meiji_fall": {
+      "title": "Meiji University — Fall 2026 hours, updated September 18 (PDF)",
+      "url": "https://www.meiji.ac.jp/koho/studentsservice/hour/6t5h7p000000mj5k-att/a1789710794487.pdf"
+    },
+    "meiji_tourism": {
+      "title": "Chiyoda Tourism — location, city view and cafeteria food (older hours may differ)",
+      "url": "https://visit-chiyoda.tokyo/app/en/spot/detail/863"
+    }
+  },
+  "meals": {
+    "tenkaippin": {
+      "place": "tenkaippin",
+      "status": "PRIORITY",
+      "day": "05",
+      "slot": "Dec 5 · Shinjuku dinner",
+      "text": "Your thick-soup experiment: こってり / kotteri. Fits the existing Shinjuku outing; no separate excursion. 思い出横丁 becomes a brief look rather than a second planned dinner.",
+      "check": "Use the West Exit branch at 西新宿1-15-10. Check its current opening hours before travel. The branch is listed as walk-in, not a reservation meal.",
+      "sources": [
+        "tenkaippin",
+        "tenbrand"
+      ]
+    },
+    "hanabi": {
+      "place": "hanabi",
+      "status": "PRIORITY",
+      "day": "11",
+      "slot": "Dec 11 · dinner after shopping, subject to confirmed evening service",
+      "text": "Still a priority meal. With 瑞兆 selected, move 華火 out of the lunch slot: katsudon at lunch, several hours of browsing / walking, then spicy noodles for dinner. Without 瑞兆, 華火 can be lunch or dinner. Do not force two consecutive full meals.",
+      "check": "Official site lists Monday and the 1st of each month as closures but does not publish Shibuya service hours. Dec 11 is Friday; confirm evening service close to travel. Nothing is reserved.",
+      "sources": [
+        "hanabi"
+      ]
+    },
+    "yuei": {
+      "place": "yuei",
+      "status": "OPTIONAL",
+      "day": "06",
+      "slot": "Dec 6 · optional lunch; changes the day’s order",
+      "text": "Only add this if the noodles appeal and you secure an arrival slot. The alternative route starts at 東高円寺, eats at 遊泳, explores 高円寺, then takes a train to 吉祥寺. Without it, keep the original park-first day.",
+      "check": "Current weekend rule: book one week ahead at 11:00 Japan time. For Dec 6, that means Nov 29 at 11:00 JST / 10:00 HKT. Gather 15 minutes early; the slot is priority seating, not a guaranteed immediate table.",
+      "sources": [
+        "yuei",
+        "yueiguide"
+      ]
+    },
+    "kasuga": {
+      "place": "kasuga",
+      "status": "BACKUP",
+      "day": null,
+      "slot": "Any convenient evening around 神田 / 日本橋",
+      "text": "Keep this on the shortlist rather than giving it its own day. Use it only when you happen to want 油そば; it is not a substitute identity for the meat-topped shop you remember.",
+      "check": "Official listing: 1 minute from the west exit of 神田駅, 内神田3-9-6. Recheck hours on the day.",
+      "sources": [
+        "kasuga"
+      ]
+    },
+    "zuicho": {
+      "place": "zuicho",
+      "status": "OPTIONAL",
+      "day": "11",
+      "slot": "Dec 11 · lunch revisit, queue-dependent · not reserved",
+      "text": "Your requested return visit. Aim to reach the shop around 11:00 ahead of the listed 11:30 opening. Protect roughly 1½–2 hours for queue + meal; this is a planning allowance, not a forecast. No fixed afternoon booking. Skip freely when the wait is not worth it.",
+      "check": "Current Tabelog listing: weekdays 11:30–18:00; closed Sundays / public holidays; no reservations and no card / e-money / QR payments. It notes a ¥2,000 bowl price. Recheck before December. Do not queue on the airport day.",
+      "sources": [
+        "zuicho"
+      ]
+    },
+    "meiji": {
+      "place": "meiji",
+      "status": "OPTIONAL",
+      "day": "09",
+      "slot": "Dec 9 · optional early lunch around 11:00; check reopening first",
+      "text": "A university-cafeteria meal with a 17th-floor view, not a high-end tasting menu. Meiji highlights its curry and ramen. Choose from the menu after reopening; post-renovation dishes and prices are not yet verified. This is an alternative to the remembered Nihombashi ramen lunch, not another lunch on top of it.",
+      "check": "As checked Sep 22: closed for kitchen work from Aug 1; planned reopening Nov 4, 2026. The official Fall schedule lists Dec 9 at 10:30–17:00, lunch-menu last orders 14:00. General-public use is supported by Meiji’s visitor FAQ. Recheck reopening, current public access and menu. Follow signs; do not enter teaching/research areas.",
+      "sources": [
+        "meiji_dining",
+        "meiji_access",
+        "meiji_hours",
+        "meiji_fall",
+        "meiji_tourism"
+      ]
+    }
+  },
+  "remembered": {
+    "name": "日本橋の肉多めラーメン（店名未確認）",
+    "description": "The place you saw with a queue and lots of meat. We have not identified it confidently. Flexible opportunity on Dec 7, or Dec 9 lunch if suitable.",
+    "identified": false
+  },
+  "revision": {
+    "date": "2026-09-22",
+    "version": 8,
+    "summary": "Preserves the preferred V6 layout and map; adds optional Meiji University cafeteria lunch on Dec 9 with a reopening caveat, map pin, directions, and optional books / later TAM TAM. Not published to GitHub."
+  },
+  "shops": {
+    "ainz": {
+      "day": "05",
+      "slot": "Dec 5 · choose ONE main beauty store",
+      "role": "Anua-listed chain",
+      "stock": "Anua lists AINZ&TULPE as a retail partner. This does not confirm which Anua items this branch stocks.",
+      "plan": "Allow roughly 30–45 minutes during the Shinjuku walk. Switch to @cosme instead when The Ordinary is the main target.",
+      "hours": "Current official hours: 10:00–22:00. Check again for December.",
+      "sources": [
+        "anua_stockists",
+        "ainz_shinjuku"
+      ]
+    },
+    "cosme": {
+      "day": "05",
+      "slot": "Dec 5 · alternative to AINZ&TULPE",
+      "role": "Both brands listed at this branch",
+      "stock": "The branch directory lists Anua and The Ordinary, with a stock-update disclaimer. Exact Anua 10% and retinol availability is not confirmed.",
+      "plan": "Use instead of AINZ&TULPE, rather than adding another long shop visit. B2F of Lumine Est Shinjuku.",
+      "hours": "Current Saturday hours: 10:30–21:00; weekdays 11:00–21:00. Recheck the mall.",
+      "sources": [
+        "cosme_shinjuku",
+        "cosme_brands"
+      ]
+    },
+    "daikokuwest": {
+      "day": "05",
+      "slot": "Dec 5 · optional 10–20-minute price check",
+      "role": "Compare prices, not a stock guarantee",
+      "stock": "Anua / The Ordinary stock not verified. Do not assume a discount store has every specialty product.",
+      "plan": "A short stop near the west-side 天下一品 meal. The Akihabara branch on Dec 10 is an alternative, not a second required visit.",
+      "hours": "Current Saturday hours: 09:05–22:50. Recheck December service.",
+      "sources": [
+        "ddw",
+        "ddsale"
+      ]
+    },
+    "welcia": {
+      "day": "07",
+      "slot": "Dec 7 · if you finish in 日本橋",
+      "role": "Anua-listed chain",
+      "stock": "Anua lists Welcia as a partner chain; the exact 10% azelaic serum and retinol stock at this branch remain unconfirmed.",
+      "plan": "Quick look between 日本橋駅 and 日本橋 bridge on the existing optional evening loop. Not a dedicated journey from the hotel.",
+      "hours": "Current shop hours on Monday: 07:30–23:00. Prescription-counter hours differ.",
+      "sources": [
+        "anua_stockists",
+        "welcia_nih"
+      ]
+    },
+    "daikokuakiba": {
+      "day": "10",
+      "slot": "Dec 10 · optional stop AFTER 柏の葉",
+      "role": "Potential sale-day alternative",
+      "stock": "The branch lists 5%-off days on the 10th and 25th, with exclusions. December continuation, eligible products and discount combinations are not guaranteed.",
+      "plan": "You already change trains at 秋葉原. Exit the station briefly only if a price comparison is still useful. OFF by default to preserve the suburban day.",
+      "hours": "Current Thursday hours: 08:05–22:50. Recheck before relying on a late stop.",
+      "sources": [
+        "dda",
+        "ddsale"
+      ]
+    },
+    "matsuflag": {
+      "day": "11",
+      "slot": "Dec 11 · on the 華火 / Loft walk",
+      "role": "Anua-listed chain",
+      "stock": "Anua lists Matsukiyo Cocokara as a retail partner; this does not verify the exact products at this branch.",
+      "plan": "Optional short afternoon browse after the 瑞兆 lunch and Loft. Never delay joining the lunch queue for this shop; skip it once your shopping is done.",
+      "hours": "Company announcement: 09:00–23:00. Reopened March 7, 2026 under this name; formerly 渋谷Part1店.",
+      "sources": [
+        "anua_stockists",
+        "matsuflag",
+        "matsuflag_news"
+      ]
+    }
+  },
+  "cafes": {
+    "komedaakiba": {
+      "day": "10",
+      "tag": "Your friend’s recommendation",
+      "category": "Morning + pastry dessert",
+      "order": "Drink + morning toast / round bread. Choose egg, egg paste or ogura red bean. A mini Shiro-Noir is a separate dessert order, not the free breakfast.",
+      "time": "Branch currently 07:00–23:00; morning service ends 11:00.",
+      "plan": "Dec 10: around 08:30–09:30 before the TX train to 柏の葉. Repeating Komeda on another morning is welcome.",
+      "price": "Pay for the drink; the basic morning bread set is included. Extras and desserts cost more. Branch prices vary.",
+      "sources": [
+        "komeda_morning",
+        "komeda_atre",
+        "komeda_menu"
+      ]
+    },
+    "hoshinokanda": {
+      "day": "04",
+      "tag": "Easy near-hotel breakfast",
+      "category": "Morning + oven-baked pancakes",
+      "order": "Choose a morning set; the chain lists toast / egg, mini pancakes and other breakfast choices. For the full 窯焼きスフレパンケーキ, a later café visit is the safer plan; check branch availability.",
+      "time": "Kanda: weekdays 07:00–22:00, Saturday 08:00–22:00, Sunday/holidays 08:00–19:30. Morning to 11:00.",
+      "plan": "Dec 4 breakfast before the train to 六義園. Optional Dec 7 later return for a full pancake dessert.",
+      "price": "Check the branch menu. A morning mini pancake is not the same order as the full soufflé stack.",
+      "sources": [
+        "hoshino_stores",
+        "hoshino_menu"
+      ]
+    },
+    "coffeeen": {
+      "day": "03",
+      "tag": "An older independent kissaten",
+      "category": "Savory morning / coffee",
+      "order": "Coffee plus a toast or hot-dog morning add-on. A different breakfast from the sweeter pancake cafés.",
+      "time": "Official morning menu runs from opening until 11:30. Confirm the opening time before an especially early start.",
+      "plan": "Optional Dec 3 breakfast near 神田 before your UTokyo outing. Keep it short enough to enjoy the ginkgo in daylight.",
+      "price": "Published menu: blend coffee ¥650 + toast add-on ¥120 = ¥770; hot-dog add-on ¥270 gives ¥920 total. These are current menu figures, not December guarantees.",
+      "sources": [
+        "coffeeen_menu",
+        "coffeeen_shop"
+      ]
+    },
+    "happykichi": {
+      "day": "06",
+      "tag": "The fluffy-pancake outing",
+      "category": "Brunch / afternoon sweet",
+      "order": "Start with the signature 幸せのパンケーキ. The brand describes fluffy pancakes with honey-and-cultured-butter whipped butter; made to order in about 20 minutes, plus any queue.",
+      "time": "Kichijoji: weekdays 10:30–19:30; weekends/holidays 10:00–20:30. Not an 08:00 breakfast café.",
+      "plan": "Dec 6: 10:00 brunch on the default 吉祥寺-first route. With the 遊泳 lunch alternative, move pancakes to after the park as an optional afternoon dessert.",
+      "price": "Read the current menu before ordering. No booking has been made; use the official shop site for its online booking options.",
+      "sources": [
+        "happy_shops",
+        "happy_about"
+      ]
+    },
+    "tamtam": {
+      "day": "09",
+      "tag": "Optional free-day treat",
+      "category": "Late brunch / café break",
+      "order": "Stone-oven hotcake or French toast. Choose this for a different baked style, not as a guaranteed replica of the jiggliest soufflé pancake.",
+      "time": "Currently 11:00–21:30, last order 21:00; irregular closures; no reservations.",
+      "plan": "Dec 9 only if you feel like the 神保町 bookshop area. Off by default: the free day stays free.",
+      "price": "Operator-maintained listing gives a ¥1,000–1,999 guide budget. Not an exact future menu quote.",
+      "sources": [
+        "tamtam"
+      ]
+    }
+  },
+  "cafeVisits": [
+    {
+      "key": "coffee03",
+      "day": "03",
+      "place": "coffeeen",
+      "label": "Dec 3 · 神田珈琲園 — savory morning before UTokyo",
+      "default": false
+    },
+    {
+      "key": "hoshino04",
+      "day": "04",
+      "place": "hoshinokanda",
+      "label": "Dec 4 · 星乃 神田 — morning before 六義園",
+      "default": true
+    },
+    {
+      "key": "happy06",
+      "day": "06",
+      "place": "happykichi",
+      "label": "Dec 6 · 幸せのパンケーキ — brunch or later dessert",
+      "default": true
+    },
+    {
+      "key": "hoshino07",
+      "day": "07",
+      "place": "hoshinokanda",
+      "label": "Dec 7 · 星乃 神田 — optional full-pancake return",
+      "default": false
+    },
+    {
+      "key": "tam09",
+      "day": "09",
+      "place": "tamtam",
+      "label": "Dec 9 · TAM TAM — optional brunch / café, opens 11:00",
+      "default": false
+    },
+    {
+      "key": "komeda10",
+      "day": "10",
+      "place": "komedaakiba",
+      "label": "Dec 10 · コメダ 秋葉原 — morning before 柏の葉",
+      "default": true
+    }
+  ]
+}</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('tripdata').textContent),P=DATA.places,B=DATA.bases,DAYS=DATA.days;
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state={base:'nih',day:'09',hotel:false,labels:true,short:false,books:false,optRail:false,foodAlt:false,zuicho:true,shibuyaLong:false,shopping:{beauty:'ainz',west:true,welcia:true,flag:true,akiba:false},shopGroup:'all',cafes:Object.fromEntries(DATA.cafeVisits.map(v=>[v.key,v.default])),cafeGroup:'all'};
+try{const pref=JSON.parse(localStorage.getItem('tokyoRoutesV3')||'{}');if(B[pref.base])state.base=pref.base;}catch{}
+try{const pref=JSON.parse(localStorage.getItem('tokyoShoppingV4')||'{}');if(['ainz','cosme','none'].includes(pref.beauty))state.shopping.beauty=pref.beauty;for(const k of ['west','welcia','flag','akiba'])if(typeof pref[k]==='boolean')state.shopping[k]=pref[k];}catch{}
+try{const pref=JSON.parse(localStorage.getItem('tokyoCafesV5')||'{}');for(const k of Object.keys(state.cafes))if(typeof pref[k]==='boolean')state.cafes[k]=pref[k];}catch{}
+try{const pref=JSON.parse(localStorage.getItem('tokyoZuichoV6')||'{}');for(const k of ['zuicho','shibuyaLong'])if(typeof pref[k]==='boolean')state[k]=pref[k];}catch{}
+state.meiji=false;
+try{const p=JSON.parse(localStorage.getItem('tokyoMeijiV8')||'{}');if(typeof p.enabled==='boolean')state.meiji=p.enabled;}catch{}
+const qs=new URLSearchParams(location.hash.slice(1));if(B[qs.get('base')])state.base=qs.get('base');if(['meals','shops','cafes'].includes(qs.get('day'))||DAYS.some(d=>d.id===qs.get('day')))state.day=qs.get('day');
+function saveState(){try{localStorage.setItem('tokyoMeijiV8',JSON.stringify({enabled:state.meiji}));}catch{}try{localStorage.setItem('tokyoZuichoV6',JSON.stringify({zuicho:state.zuicho,shibuyaLong:state.shibuyaLong}));}catch{}try{localStorage.setItem('tokyoCafesV5',JSON.stringify(state.cafes));}catch{}try{localStorage.setItem('tokyoShoppingV4',JSON.stringify(state.shopping));}catch{}try{localStorage.setItem('tokyoRoutesV3',JSON.stringify({base:state.base}));}catch{}try{history.replaceState(null,'','#'+new URLSearchParams({day:state.day,base:state.base}));}catch{}}
+function directions(ids,mode){if(ids.length<2)return '#';const names=ids.map(id=>P[id].query),q=new URLSearchParams({api:'1',origin:names[0],destination:names.at(-1),travelmode:mode});if(mode==='walking'&&names.length>2)q.set('waypoints',names.slice(1,-1).join('|'));return 'https://www.google.com/maps/dir/?'+q.toString();}
+function searchLink(id){return 'https://www.google.com/maps/search/?'+new URLSearchParams({api:'1',query:P[id].query});}
+function link(url,label,cl=''){return `<a class="linkbtn ${cl}" href="${esc(url)}" target="_blank" rel="noopener">${label} ↗</a>`;}
+function activeDay(){let d=DAYS.find(d=>d.id===state.day);if(d?.id==='06'&&state.foodAlt)d={...d,...d.mealAlternative};if(d?.id==='10'&&state.shopping.akiba)d={...d,return:'akiba',returnText:'After the optional Akihabara shop, use 日比谷線 to 小伝馬町 for 日本橋, or 中央・総武線 toward 四ツ谷. The 柏の葉 → 秋葉原 rail leg is shown separately.'};return d;}
+function segments(){const d=activeDay();if(!d)return [];let s=d.id==='10'&&state.short?d.shortSegments:d.segments;if(d.id==='09'&&state.books)s=d.optionalWalk; if(d.optionalRail&&state.optRail)s=[...s,d.optionalRail];s=s.map(x=>({...x,ids:[...x.ids]}));
+ if(d.id==='05'){
+   if(state.shopping.beauty!=='none'){const a=s[0].ids;a.splice(a.indexOf('hanazono')+1,0,state.shopping.beauty);}
+   if(state.shopping.west){const a=s[0].ids;a.splice(a.indexOf('tenkaippin')+1,0,'daikokuwest');}
+   s[0].title='新宿散歩 + 選んだ店 / Walk + selected optional shops';s[0].note='Optional shop controls above change the route. Choose AINZ&TULPE OR @cosme; skip both when shopping is done. The garden and 天下一品 remain.';
+ }
+ if(d.id==='07'&&state.shopping.welcia){const a=s.find(x=>x.mode==='walking'&&x.ids.includes('nihonbridge'));if(a){a.ids.splice(a.ids.indexOf('nihonbridge'),0,'welcia');a.note='Optional 日本橋 finish. Welcia is a quick look, not a reason to extend the day when you are tired.';}}
+ if(d.id==='11'){
+   s=state.zuicho?[
+     {mode:'walking',ids:['shibuya','zuicho'],title:'11:00 target: 渋谷駅 → 瑞兆 / Queue + lunch',note:'Suggested arrival before the listed 11:30 opening; not a reservation. Protect about 1½–2 hours for queue + meal, not a predicted waiting time.'},
+     {mode:'walking',ids:['zuicho','loft',...(state.shopping.flag?['matsuflag']:[])],title:'Afternoon: ロフト + optional マツキヨ',note:'After lunch, browse and walk at your own pace. Skip the drugstore when shopping is done; nothing here has a fixed arrival time.'}
+   ]:[{mode:'walking',ids:['shibuya','loft',...(state.shopping.flag?['matsuflag']:[])],title:'Relaxed 渋谷 shopping / 瑞兆 skipped',note:'No katsudon queue today. 華火 remains on the plan and can be lunch or dinner once its service hours are checked.'}];
+   let last=s.at(-1).ids.at(-1);
+   if(state.shibuyaLong){
+     s.push({mode:'walking',ids:[last,'daikan','nakameguro'],title:'Optional longer walk: 代官山 → 中目黒',note:'Only with spare time and energy. This adds distance rather than a booking. Drop it if 瑞兆 takes longer than you wish.'},
+       {mode:'transit',ids:['nakameguro','shibuya'],title:'TRAIN back to 渋谷 before dinner',note:'Use a live 東横線 route to return for 華火; do not accidentally finish the day in 中目黒 while dinner remains in Shibuya.'});
+     last='shibuya';
+   }
+   s.push({mode:'walking',ids:[last,'hanabi','shibuya'],title:state.zuicho?'Evening: 辛麺華火 → 渋谷駅':'Meal: 辛麺華火 → 渋谷駅',note:state.zuicho?'Dinner after an afternoon gap, not another lunch. Shibuya evening service must be confirmed close to travel.':'Choose meal timing around confirmed service hours. End at Shibuya Station for the hotel train.'});
+ }
+ if(d.id==='10'&&state.shopping.akiba)s.push({mode:'transit',ids:['kashista','akiba'],title:'RETURN TRAIN: 柏の葉 → 秋葉原',note:'This is the return journey, not walking. Pick a TX service that stops at 柏の葉キャンパス.'},{mode:'walking',ids:['akiba','daikokuakiba','akiba'],title:'Optional: 秋葉原の大國藥妝 / Price check',note:'An alternative to the Shinjuku Daikoku visit. Current 10th/25th sale excludes some items; recheck December terms. You are already changing trains here.'});
+ return s;}
+function uniqueStops(){return [...new Set(segments().flatMap(s=>s.ids))];}
+function numberFor(id){return uniqueStops().indexOf(id)+1;}
+const routeCache=new Map();let queue=Promise.resolve(),lastRequest=0;
+function keyFor(ids){return ids.map(id=>`${P[id].lon.toFixed(5)},${P[id].lat.toFixed(5)}`).join(';');}
+function routeData(ids){return routeCache.get(keyFor(ids));}
+function requestWalking(ids){const key=keyFor(ids);if(routeCache.has(key))return;routeCache.set(key,{status:'queued'});queue=queue.then(async()=>{
+ const wait=Math.max(0,1100-(Date.now()-lastRequest));if(wait)await new Promise(r=>setTimeout(r,wait));lastRequest=Date.now();routeCache.set(key,{status:'loading'});updatePaths();
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),14000);
+ try{
+  // The /routed-foot/ backend is configured for walking, even though OSRM's route URL retains the generic driving token.
+  const url='https://routing.openstreetmap.de/routed-foot/route/v1/driving/'+key+'?overview=full&geometries=geojson&steps=false';
+  const r=await fetch(url,{signal:controller.signal});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json(),rt=j.routes?.[0];
+  if(j.code!=='Ok'||rt?.geometry?.type!=='LineString'||!rt.geometry.coordinates?.length)throw new Error('No walking route');
+  if(j.waypoints?.some(w=>w.distance>180))throw new Error('One stop is too far from a mapped walking path');
+  routeCache.set(key,{status:'ready',geometry:rt.geometry.coordinates.map(c=>[c[1],c[0]]),distance:rt.distance,duration:rt.duration});
+ }catch(e){routeCache.set(key,{status:'failed',error:e.name==='AbortError'?'Routing service timed out.':'Street routing unavailable in this browser/network.'});}
+ finally{clearTimeout(timer);updatePaths();}
+ });}
+function loadCurrentPaths(){for(const s of segments())if(s.mode==='walking')requestWalking(s.ids);}
+function pathStatus(s){const r=routeData(s.ids);if(s.mode!=='walking')return 'Train connection diagram — open transit directions for actual services.';if(r?.status==='ready')return `Street-following route loaded · ${(r.distance/1000).toFixed(1)} km for this block (extra browsing not included).`;if(r?.status==='failed')return 'Street route unavailable here. Dotted line shows order only. Walking directions still open in Google Maps.';return 'Loading walking paths… dotted line currently shows stop order only.';}
+
+// Small dependency-free Web Mercator tile map. No CDN JavaScript or API key is required.
+const mapEl=$('map'),tilesEl=$('tiles'),overlay=$('overlay'),pinsEl=$('pins');
+let z=11,center=[35.73,139.78],tileMap=new Map(),tileLoaded=0,tileErrors=0,layerModel={markers:[],lines:[]},selected=null;
+function world(lat,lon,zoom=z){const size=256*Math.pow(2,zoom),s=Math.sin(Math.max(-85,Math.min(85,lat))*Math.PI/180);return [(lon+180)/360*size,(.5-Math.log((1+s)/(1-s))/(4*Math.PI))*size];}
+function ll(x,y,zoom=z){const size=256*2**zoom;return [Math.atan(Math.sinh(Math.PI*(1-2*y/size)))*180/Math.PI,x/size*360-180];}
+function screen(pt){const c=world(...center),w=world(...pt);return [w[0]-c[0]+mapEl.clientWidth/2,w[1]-c[1]+mapEl.clientHeight/2];}
+function fit(points){if(!points.length)return;const n=points.map(p=>Array.isArray(p)?p:[p.lat,p.lon]);const w=Math.max(100,mapEl.clientWidth-130),h=Math.max(100,mapEl.clientHeight-120);let nz=16;
+ const pp=n.map(p=>world(...p,0)),minx=Math.min(...pp.map(p=>p[0])),maxx=Math.max(...pp.map(p=>p[0])),miny=Math.min(...pp.map(p=>p[1])),maxy=Math.max(...pp.map(p=>p[1]));
+ while(nz>8&&((maxx-minx)*2**nz>w||(maxy-miny)*2**nz>h))nz--;
+ z=n.length===1?14:nz;center=ll((minx+maxx)/2,(miny+maxy)/2,0);drawMap();}
+function drawTiles(){const c=world(...center),w=mapEl.clientWidth,h=mapEl.clientHeight,left=c[0]-w/2,top=c[1]-h/2,x0=Math.floor(left/256),x1=Math.floor((left+w)/256),y0=Math.floor(top/256),y1=Math.floor((top+h)/256),wanted=new Set(),n=2**z;
+ for(let x=x0;x<=x1;x++)for(let y=y0;y<=y1;y++){if(y<0||y>=n)continue;const normX=(x%n+n)%n,key=`${z}/${normX}/${y}`;wanted.add(key);let img=tileMap.get(key);if(!img){img=new Image();img.className='tile';img.alt='';img.draggable=false;img.decoding='async';img.onload=()=>{img.style.visibility='visible';tileLoaded++;$('tilewarn').classList.remove('visible');};img.onerror=()=>{img.style.visibility='hidden';tileErrors++;if(tileLoaded===0)$('tilewarn').classList.add('visible');};img.src='https://tile.openstreetmap.org/'+key+'.png';tileMap.set(key,img);tilesEl.appendChild(img);}img.style.left=Math.round(x*256-left)+'px';img.style.top=Math.round(y*256-top)+'px';}
+ for(const [key,img]of tileMap)if(!wanted.has(key)){img.remove();tileMap.delete(key);}
+}
+function drawMap(){drawTiles();drawOverlay();const metersPx=156543.03392*Math.cos(center[0]*Math.PI/180)/2**z;const raw=metersPx*95,pow=10**Math.floor(Math.log10(raw)),m=[1,2,5,10].map(x=>x*pow).filter(x=>x<=raw).at(-1)||pow;$('scale').style.width=(m/metersPx)+'px';$('scale').textContent=m>=1000?(m/1000)+' km':m+' m';}
+function drawOverlay(){const W=mapEl.clientWidth,H=mapEl.clientHeight;overlay.setAttribute('viewBox',`0 0 ${W} ${H}`);let out=`<defs><marker id="walkArrow" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#087b67" stroke-width="1.5"/></marker><marker id="railArrow" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#6765a3" stroke-width="1.5"/></marker></defs>`;
+ for(const line of layerModel.lines){const pts=line.points.map(screen);if(pts.length<2)continue;const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' '),col=line.mode==='transit'?'#6765a3':line.routed?'#087b67':'#bd782b',dash=line.mode==='transit'?'9 7':line.routed?'':'3 7';out+=`<path d="${d}" fill="none" stroke="#fff" stroke-width="7" opacity=".85"/><path d="${d}" fill="none" stroke="${col}" stroke-width="${line.mode==='transit'?3:4}" stroke-dasharray="${dash}" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>`;if(line.mode==='transit'){const a=pts[0],b=pts.at(-1),mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;if(mx>25&&mx<W-25&&my>15&&my<H-15)out+=`<rect x="${mx-23}" y="${my-9}" width="46" height="18" rx="5" fill="#fff" stroke="#cecae2"/><text x="${mx}" y="${my+3}" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#6765a3">TRAIN</text>`;}}
+ overlay.innerHTML=out;pinsEl.replaceChildren();let placed=[];
+ for(const m of layerModel.markers){const p=P[m.id],xy=screen([p.lat,p.lon]);if(xy[0]<-180||xy[0]>W+180||xy[1]<-80||xy[1]>H+80)continue;const btn=document.createElement('button');btn.className='pin'+(P[m.id].kind==='cafe'?' cafe':'')+(m.hotel?' hotel':'')+(P[m.id].category==='shop'?' shop':'')+(m.outer?' outer':'')+(m.rail?' rail':'')+(p.kind==='meal'?' meal':'')+(selected===m.id?' selected':'');btn.style.left=xy[0]+'px';btn.style.top=xy[1]+'px';btn.textContent=m.text;btn.setAttribute('aria-label',p.jp+' / '+p.en);btn.title=p.jp+' / '+p.en;btn.addEventListener('pointerdown',e=>e.stopPropagation());btn.onclick=e=>{e.stopPropagation();openPoint(m.id);};
+ if(state.labels&&!m.rail){const close=placed.some(a=>Math.abs(a[0]-xy[0])<175&&Math.abs(a[1]-xy[1])<40);if(!close||selected===m.id||m.hotel){let label=document.createElement('span');label.className='pinlabel';label.innerHTML=esc(p.jp)+`<small>${esc(p.en)}</small>`;if(xy[0]>W*.65){label.style.left='auto';label.style.right='34px';}btn.appendChild(label);placed.push(xy);}}
+ pinsEl.appendChild(btn);}
+}
+function openPoint(id){selected=id;const p=P[id];$('popup').innerHTML=`<button class="close" aria-label="Close place">×</button><b>${esc(p.jp)}</b><small>${esc(p.en)}</small><p>${esc(p.note||'A stop on the selected route. Use the directions buttons in the trip panel to navigate between stops.')}</p>${p.category==='shop'?`<p style="font-size:11px">${esc(p.address)}</p>`:''}<a href="${esc(searchLink(id))}" target="_blank" rel="noopener" style="font-size:11px">Place details ↗</a>`;$('popup').classList.add('visible');$('popup').querySelector('.close').onclick=()=>{$('popup').classList.remove('visible');selected=null;drawOverlay();};drawOverlay();}
+function focusPoint(id){const p=P[id];center=[p.lat,p.lon];z=Math.max(z,15);drawMap();openPoint(id);}
+function zoom(delta,px=mapEl.clientWidth/2,py=mapEl.clientHeight/2){const old=z,newz=Math.max(8,Math.min(18,z+delta));if(old===newz)return;const wc=world(...center),geo=ll(wc[0]+px-mapEl.clientWidth/2,wc[1]+py-mapEl.clientHeight/2);z=newz;const a=world(...geo);center=ll(a[0]-(px-mapEl.clientWidth/2),a[1]-(py-mapEl.clientHeight/2));drawMap();}
+$('zoomIn').onclick=()=>zoom(1);$('zoomOut').onclick=()=>zoom(-1);let pointers=new Map(),drag=null,pinch=null,moved=false;
+mapEl.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,.popup,.tilewarn'))return;pointers.set(e.pointerId,[e.clientX,e.clientY]);mapEl.setPointerCapture(e.pointerId);if(pointers.size===1){drag={x:e.clientX,y:e.clientY,c:world(...center)};moved=false;}else if(pointers.size===2){const a=[...pointers.values()];pinch={d:Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]),z};drag=null;}});
+mapEl.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,[e.clientX,e.clientY]);if(pointers.size===2&&pinch){const a=[...pointers.values()],d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);if(d/pinch.d>1.4){zoom(1);pinch.d=d;}else if(d/pinch.d<.7){zoom(-1);pinch.d=d;}}else if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;center=ll(drag.c[0]-dx,drag.c[1]-dy);drawMap();}});
+function pointerEnd(e){pointers.delete(e.pointerId);drag=null;pinch=null;}mapEl.addEventListener('pointerup',pointerEnd);mapEl.addEventListener('pointercancel',pointerEnd);let wheelTime=0;
+mapEl.addEventListener('wheel',e=>{e.preventDefault();if(Date.now()-wheelTime<160)return;wheelTime=Date.now();const r=mapEl.getBoundingClientRect();zoom(e.deltaY<0?1:-1,e.clientX-r.left,e.clientY-r.top);},{passive:false});mapEl.addEventListener('dblclick',e=>{if(!e.target.closest('button,a'))zoom(1);});mapEl.addEventListener('keydown',e=>{if(e.key==='+'||e.key==='='){e.preventDefault();zoom(1);}if(e.key==='-'){e.preventDefault();zoom(-1);}const v={ArrowLeft:[-90,0],ArrowRight:[90,0],ArrowUp:[0,-90],ArrowDown:[0,90]}[e.key];if(v){e.preventDefault();const c=world(...center);center=ll(c[0]+v[0],c[1]+v[1]);drawMap();}});new ResizeObserver(()=>drawMap()).observe(mapEl);
+
+const overviewIds=[['03','ginkgo'],['04','rikugien'],['05','gyoen'],['06','kichijoji'],['07','kiyosumi'],['08','boulevard'],['10','kashista'],['11','loft']];
+function mapModel(){let markers=[],lines=[];if(state.day==='shops'){return {markers:[{id:state.base,text:'H',hotel:true},...shopIdsForGroup().map((id,i)=>({id,text:String(i+1)}))],lines:[]};}if(state.day==='meals'){return {markers:[{id:state.base,text:'H',hotel:true},...Object.keys(DATA.meals).map((id,i)=>({id,text:String(i+1)}))],lines:[]};}if(state.day==='overview'){markers=[{id:state.base,text:'H',hotel:true},...overviewIds.map(([day,id])=>({id,text:day,outer:['06','08','10'].includes(day)}))];return{markers,lines};}
+ const s=segments(),ids=uniqueStops();markers=ids.map((id,i)=>({id,text:String(i+1),outer:state.day==='10'}));for(const seg of s){const r=routeData(seg.ids);lines.push({mode:seg.mode,routed:r?.status==='ready',points:r?.status==='ready'?r.geometry:seg.ids.map(id=>[P[id].lat,P[id].lon])});}
+ if(state.hotel||!ids.length){markers.unshift({id:state.base,text:'H',hotel:true});const d=activeDay(),a=d?.access?.[state.base];if(a&&ids.length){lines.unshift({mode:'transit',points:a.nodes.map(id=>[P[id].lat,P[id].lon])});const ret=state.optRail&&d.optionalRail?'kagura':d.return; if(ret)lines.push({mode:'transit',points:[[P[ret].lat,P[ret].lon],[P[state.base].lat,P[state.base].lon]]});const mids=a.nodes.slice(1,-1).filter(id=>!ids.includes(id));markers.push(...mids.map(id=>({id,text:'駅',rail:true})));}}
+ return{markers,lines};}
+function refit(){const pts=layerModel.markers.map(m=>P[m.id]);if(pts.length)fit(pts);else fit([P[state.base]]);}
+function updatePaths(){layerModel=mapModel();drawOverlay();for(const el of document.querySelectorAll('[data-pathstate]')){const s=segments()[+el.dataset.pathstate];if(s)el.textContent=pathStatus(s);}updateStatus();}
+function updateStatus(){const s=segments().filter(x=>x.mode==='walking'),r=s.map(x=>routeData(x.ids));$('mapstatus').textContent=state.day==='shops'?'Shopping options on separate days, not one shopping route. Pick a day to see how selected shops join the walk. Exact product stock and December discounts are unconfirmed.':state.day==='meals'?'Restaurant options on DIFFERENT days, not a food-crawl route. The remembered 日本橋 shop is not pinned because its identity is unresolved. Select a restaurant’s day to see the route.':state.day==='overview'?'Overview: correct geographic positions on a street basemap. Select a day to see its numbered walking route; “Include hotel / trains” adds the outward and return connections.':s.length?`${r.filter(x=>x?.status==='ready').length}/${s.length} walking blocks have street geometry. ${r.some(x=>x?.status==='failed')?'Some paths could not be fetched; those remain dotted order-lines. ':''}Directions buttons open a real origin → destination route. Train lines are schematic connections, not track-level routing.`:'No mandatory route for this day. Your hotel stays the same. Open a regular browser with internet access if the street map is blank.';}
+function overviewHTML(){return cafeOverviewCard()+shoppingOverviewCard()+foodOverviewCard()+`<section class="card"><span class="badge gold">A BETTER BALANCE</span><h2>Not all of these are “far out.”</h2><p>本郷・谷中・清澄白河 are still inner Tokyo. 吉祥寺 goes farther west; 横浜 is a different city. <strong>柏の葉 is the new-town excursion we had dropped.</strong></p><div class="stats"><div><b>10 nights</b>Same hotel throughout</div><div><b>3 outward days</b>吉祥寺 · 横浜 · 柏の葉</div></div><div class="callout">Think: train to a district or town, explore on foot, train home. The plan is not to walk all the distances shown on the overview.</div></section><section class="card"><h3>Choose an area / a day</h3><div class="overview-list">${overviewIds.map(([id,pid])=>{const d=DAYS.find(d=>d.id===id);return `<button class="overview-item" data-go="${id}"><span class="number ${['06','08','10'].includes(id)?'outer':''}">${id}</span><span><b>${esc(d.jp)}</b><small>${esc(d.type)} · December ${+id}</small></span></button>`}).join('')}</div></section><section class="card"><h3>日本橋 or 四ツ谷?</h3><p>${esc(B[state.base].note)}</p><div class="actions">${link(B[state.base].source,'Hotel access & rooms')}</div><div class="callout">Adding 柏の葉 makes 日本橋 more useful, not less. You can keep the hotel you already enjoyed without giving up the suburban days.</div></section>`;}
+function segmentHTML(s,i){const isWalk=s.mode==='walking';let chunks=[];if(isWalk){for(let n=0;n<s.ids.length-1;n+=4)chunks.push(s.ids.slice(n,Math.min(n+5,s.ids.length)));}else chunks=[s.ids.length>2?[s.ids[0],s.ids.at(-1)]:s.ids];return `<section class="card"><div class="routehead"><span class="mode ${isWalk?'':'transit'}">${isWalk?'WALK 徒歩':'TRAIN 電車'}</span><h3>${esc(s.title)}</h3></div>${s.note?`<p class="block-note">${esc(s.note)}</p>`:''}<div class="pathstate" data-pathstate="${i}">${esc(pathStatus(s))}</div><ol class="stoplist">${s.ids.map((id,n)=>`<li><button class="stopnum" data-focus="${id}" aria-label="Show ${esc(P[id].jp)} on map">${numberFor(id)}</button><div class="jp">${esc(P[id].jp)}</div><div class="en">${esc(P[id].en)}</div>${n<s.ids.length-1?`<a class="steplink" href="${esc(directions([id,s.ids[n+1]],s.mode))}" target="_blank" rel="noopener">${isWalk?'Walk':'Transit'} to next stop ↗</a>`:''}</li>`).join('')}</ol><div class="actions">${chunks.map((c,n)=>link(directions(c,s.mode),isWalk?(chunks.length>1?`Walking directions ${n+1}`:'Open this walking route'):'Open transit directions',isWalk?'primary':'rail')).join('')}</div></section>`;}
+function dayHTML(d){const a=d.access[state.base],s=segments();let h=`<section class="card"><span class="badge ${d.id==='10'?'gold':''}">${esc(d.type)}</span><h2>${esc(d.jp)}</h2><p>${esc(d.desc)}</p><div class="stats"><div><b>${esc(d.walk)}</b>Walking allowance, not a target</div><div><b>${esc(d.duration)}</b>With meals and stops</div></div>`;
+ if(d.id==='10')h+=`<div class="control-row"><button data-short="false" class="${!state.short?'active':''}">Park + campus-edge loop</button><button data-short="true" class="${state.short?'active':''}">Short town / T-SITE loop</button></div>`;
+ if(d.id==='09')h+=`<div class="control-row"><button data-books="false" class="${!state.books?'active':''}">No bookshop extension</button><button data-books="true" class="${state.books?'active':''}">Show optional bookshop walk</button></div>`;
+ if(d.optionalRail)h+=`<div class="control-row"><button id="optionalRailToggle" class="${state.optRail?'active':''}">${state.optRail?'Remove':'Add'} optional 神楽坂 dinner</button></div>`;
+ h+=`<div class="callout">${esc(d.tip)}</div></section>`;
+ if(d.id==='11')h+=zuichoDayCard();
+ h+=dailyCafeHTML(d);
+ h+=dailyShoppingHTML(d);
+ if(d.meals)h+=d.meals.filter(id=>id!=='zuicho'||state.zuicho).map(mealCard).join(''); if(d.remembered)h+=rememberedCard();
+ if(a)h+=`<section class="card journey"><div class="smallcaps">OUTWARD · hotel to first area</div><h3>${esc(P[state.base].jp)}</h3><div class="estimate">${esc(a.time)}</div><p class="routetext">${esc(a.text)}</p><div class="actions">${link(directions([state.base, s[0]?.ids[0]||a.nodes.at(-1)],a.mode||'transit'),a.mode==='walking'?'Walk to breakfast':'Open outward transit',a.mode==='walking'?'primary':'rail')}</div><p class="desktopnote">Door-to-area planning allowance, not an exact train time.</p></section>`;
+ if(d.id==='09'&&state.books&&!state.meiji&&!a){h+=`<section class="card journey"><h3>Optional start: 神保町</h3><p>日本橋: walk to 三越前 → 半蔵門線 to 神保町. 四ツ谷: JR to 御茶ノ水, then walk toward 神保町.</p><div class="actions">${link(directions([state.base,'jim'],'transit'),'Transit to 神保町','rail')}</div></section>`;}
+ h+=s.map(segmentHTML).join('');
+ if(d.return){const end=state.optRail&&d.optionalRail?'kagura':d.return;h+=`<section class="card journey"><div class="smallcaps">RETURN · same hotel</div><h3>${esc(P[end].jp)} → ${esc(B[state.base].label)}</h3><p class="routetext">${esc(state.optRail&&d.optionalRail?'Return from 神楽坂 / 飯田橋 instead of 巣鴨.':d.returnText)}</p><div class="actions">${link(directions([end,state.base],'transit'),'Return transit','rail')}</div></section>`;}
+ if(d.sources.length)h+=`<section class="card sources"><h3>References / check before travel</h3>${d.sources.map(k=>`<a href="${esc(DATA.sources[k].url)}" target="_blank" rel="noopener">${esc(DATA.sources[k].title)} ↗</a>`).join('')}</section>`;
+ if(!s.length)h+=`<section class="card"><h3>No required journey</h3><p>Use the overview to understand the geography; this day is deliberately not given another route to complete.</p></section>`;
+ return h;}
+function render({fitView=true}={}){saveState();$('popup').classList.remove('visible');selected=null;for(const el of document.querySelectorAll('[data-base]'))el.classList.toggle('active',el.dataset.base===state.base);$('basequote').textContent=B[state.base].quote+' · your quoted rate, not live pricing';
+ $('tabs').innerHTML=`<button class="daytab ${state.day==='overview'?'active':''}" data-day="overview"><b>全体 Overview</b><span>City vs suburbs</span></button><button class="daytab ${state.day==='meals'?'active':''}" data-day="meals"><b>食事 Meals</b><span>Priorities & options</span></button><button class="daytab ${state.day==='cafes'?'active':''}" data-day="cafes"><b>朝食・カフェ</b><span>Morning & pancakes</span></button><button class="daytab ${state.day==='shops'?'active':''}" data-day="shops"><b>買い物 Shops</b><span>Optional / price checks</span></button>`+DAYS.map(d=>`<button class="daytab ${state.day===d.id?'active':''} ${d.id==='10'||d.id==='03'||d.id==='11'?'new':''}" data-day="${d.id}"><b>12/${+d.id} · ${d.dow}</b><span>${esc(d.id==='03'?'東大の銀杏':d.id==='10'?'柏の葉':d.id==='11'?'瑞兆・渋谷':d.id==='09'?'自由日・明治':d.jp.split('・')[0].slice(0,9))}</span></button>`).join('');
+ const d=activeDay();$('maptitle').textContent=state.day==='cafes'?'朝食・パンケーキ / Cafés':state.day==='shops'?'薬妝・コスメ / Shops':state.day==='meals'?'食事の候補 / Meals':d?d.jp:'東京と郊外の位置関係';$('mapsub').textContent=state.day==='cafes'?'Morning cafés and later pancake stops — separate visits, not one food crawl':state.day==='shops'?'Anua partner chains + 大國藥妝 price comparisons':state.day==='meals'?'Separate meals on separate days — not one route':d?`December ${+d.id} · ${d.en}`:'Whole-trip overview · numbers are December dates';$('mapbadge').textContent=state.day==='cafes'?'MORNINGS & SWEETS':state.day==='shops'?'OPTIONAL SHOPPING':state.day==='meals'?'FOOD SHORTLIST':d?d.type:'OVERVIEW';$('sidebar').innerHTML=state.day==='cafes'?cafesHTML():state.day==='shops'?shopsHTML():state.day==='meals'?mealsHTML():d?dayHTML(d):overviewHTML();$('fitlocal').classList.toggle('active',!state.hotel);$('fithotel').classList.toggle('active',state.hotel);layerModel=mapModel();if(fitView)refit();else drawMap();updateStatus();loadCurrentPaths();}
+function selectDay(id){state.day=id;state.hotel=false;state.optRail=false;render();$('tabs').querySelector('.active')?.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});}
+$('tabs').addEventListener('click',e=>{const btn=e.target.closest('[data-day]');if(btn)selectDay(btn.dataset.day);});document.querySelectorAll('[data-base]').forEach(b=>b.onclick=()=>{state.base=b.dataset.base;render();});
+$('sidebar').addEventListener('click',e=>{let b=e.target.closest('[data-go]');if(b){selectDay(b.dataset.go);return;}b=e.target.closest('[data-focus]');if(b){focusPoint(b.dataset.focus);return;}b=e.target.closest('[data-short]');if(b){state.short=b.dataset.short==='true';render();return;}b=e.target.closest('[data-books]');if(b){state.books=b.dataset.books==='true';render();return;}if(e.target.closest('#optionalRailToggle')){state.optRail=!state.optRail;render();}});
+$('fitlocal').onclick=()=>{state.hotel=false;render();};$('fithotel').onclick=()=>{state.hotel=true;render();};$('showlabels').onclick=()=>{state.labels=!state.labels;$('showlabels').textContent='Labels: '+(state.labels?'on':'off');drawOverlay();};$('fullscreen').onclick=()=>{document.body.classList.toggle('mapfullscreen');$('fullscreen').textContent=document.body.classList.contains('mapfullscreen')?'Exit expanded map':'Expand map';setTimeout(()=>{drawMap();refit();},60);};
+$('retry').onclick=()=>{for(const [k,r]of routeCache)if(r.status==='failed')routeCache.delete(k);for(const im of tileMap.values())im.remove();tileMap.clear();tileLoaded=0;tileErrors=0;$('tilewarn').classList.remove('visible');drawMap();loadCurrentPaths();};
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('mapfullscreen'))$('fullscreen').click();});
+
+function foodOverviewCard(){return `<section class="card mealcard"><span class="mealstatus">NEW · RAMEN PLANS</span><h3>Two ramen priorities + a favorite to revisit.</h3><p>Keep the same hotel, 東大 ginkgo, 横浜 and 柏の葉. Fit ramen into those days; do not turn every lunch into a queue.</p><button class="meal-mini" data-go="05"><strong>12/5 · 天下一品</strong><small>Thick こってり soup · Shinjuku day</small></button><button class="meal-mini" data-go="11"><strong>12/11 · 瑞兆 lunch / 華火 dinner</strong><small>Queue-dependent revisit, then browsing and a later noodle meal</small></button><button class="meal-mini" data-go="07"><strong>12/7 or 12/9 · 日本橋の思い出の店</strong><small>Optional revisit · exact shop still unknown</small></button><div class="control-row"><button data-go="meals">Open all meal notes</button></div></section>`;}
+function mealCard(id){const m=DATA.meals[id],p=P[m.place];const status=id==='zuicho'?'Requested revisit · queue-dependent':m.status==='PRIORITY'?'Priority meal · not reserved':m.status==='OPTIONAL'?'Optional · not booked':'Local backup · unscheduled';return `<section class="card mealcard"><span class="mealstatus ${m.status.toLowerCase()}">${status}</span><h3>${esc(p.jp)}</h3><p style="font-size:11px">${esc(p.en)}</p><div class="mealtime">${esc(m.slot)}</div><p>${esc(m.text)}</p><div class="mealcheck">${esc(m.check)}</div><div class="actions">${link(searchLink(m.place),'Place / photos')}${link(directions([state.base,m.place],'transit'),'From this hotel','rail')}${m.day?`<button class="actionbtn" data-go="${m.day}">See Dec ${+m.day} route</button>`:''}${state.day===m.day&&uniqueStops().includes(m.place)?`<button class="actionbtn" data-focus="${m.place}">Show map pin</button>`:''}</div>${id==='yuei'&&state.day==='06'?`<div class="control-row"><button data-food="false" class="${!state.foodAlt?'active':''}">Keep park-first day</button><button data-food="true" class="${state.foodAlt?'active':''}">Show optional 遊泳 lunch route</button></div>`:''}<details class="meal-details"><summary>Sources / latest checks</summary>${m.sources.map(k=>`<p><a href="${esc(DATA.sources[k].url)}" target="_blank" rel="noopener">${esc(DATA.sources[k].title)} ↗</a></p>`).join('')}</details></section>`;}
+let memoryName='';try{memoryName=localStorage.getItem('tokyoRememberedRamen')||'';}catch{}
+function memoryLink(){if(!memoryName.trim())return '';try{const u=new URL(memoryName);if(u.protocol==='https:'&&(/(^|\.)google\.[a-z.]+$/.test(u.hostname)||['maps.app.goo.gl','goo.gl'].includes(u.hostname)))return u.href;}catch{}return 'https://www.google.com/maps/search/?'+new URLSearchParams({api:'1',query:memoryName+' 日本橋 東京'});}
+function rememberedCard(){return `<section class="card remembered"><span class="mealstatus optional">OPTIONAL REVISIT · IDENTITY UNRESOLVED</span><h3 style="margin-top:8px">日本橋の肉多めラーメン</h3><p>The shop you saw with a queue and lots of meat. I have not identified it confidently, so there is no guessed business name or map pin.</p><div class="callout"><strong>First opportunity:</strong> Dec 7 around 日本橋, only if it is open at a suitable time.<br><strong>Fallback opportunity:</strong> Dec 9 lunch, especially if it is lunch-only. This is ONE possible revisit, not two required meals.</div><p style="margin-top:10px;font-size:11px">You can save its name or Google Maps link here when you recognize it. This stores only in this browser; it does not verify or geolocate the shop.</p><label for="memoryInput" class="smallcaps">Shop name or Google Maps link</label><input id="memoryInput" value="${esc(memoryName)}" placeholder="Still unidentified — no need to guess"><div class="control-row"><button id="saveMemory">Save locally</button>${memoryLink()?link(memoryLink(),'Open remembered shop'):''}</div><p id="saveFeedback" class="save-status" aria-live="polite"></p></section>`;}
+function mealsHTML(){return `<section class="card"><span class="badge gold">KEEP THE TRIP RELAXED</span><h2>食事 / What to eat</h2><p>Ten nights do not need ten restaurant targets. These are priorities and optional ideas, not bookings. Current listings are a starting point; check December service before going.</p></section>`+mealCard('tenkaippin')+mealCard('zuicho')+mealCard('hanabi')+mealCard('meiji')+rememberedCard()+mealCard('yuei')+mealCard('kasuga')+`<section class="card"><h3>Not scheduled</h3><p><strong>宍道湖しじみ中華蕎麦 琥珀:</strong> your link confirms the ramen restaurant, not the similarly named fine-dining restaurant. Left out because it does not currently appeal to you.</p><p style="margin-top:8px"><strong>翡翠 and 船清:</strong> no day or expense allocated. Dean’s recommendations remain suggestions, not obligations.</p><div class="actions">${link(DATA.sources.kohaku.url,'Confirmed Kohaku identity')}</div></section>`;}
+$('sidebar').addEventListener('click',e=>{const b=e.target.closest('[data-food]');if(b){state.foodAlt=b.dataset.food==='true';render();return;}if(e.target.closest('#saveMemory')){memoryName=$('memoryInput').value.trim();let persisted=false;try{localStorage.setItem('tokyoRememberedRamen',memoryName);persisted=true;}catch{}render({fitView:false});if($('saveFeedback'))$('saveFeedback').textContent=persisted?'Saved in this browser. Identity and map location remain unverified.':'Kept for this page session; this browser blocked persistent storage. Identity remains unverified.';}});
+
+
+const SHOP_ORDER=['ainz','cosme','daikokuwest','welcia','daikokuakiba','matsuflag'];
+function shopIdsForGroup(){return SHOP_ORDER.filter(id=>state.shopGroup==='all'||DATA.shops[id].day===state.shopGroup);}
+function shopSummary(id){const p=P[id],q=DATA.shops[id];return `<div class="shopmini"><b>${esc(p.jp)}</b><small>${esc(q.slot)}</small><div class="actions">${link(searchLink(id),'Details')}${uniqueStops().includes(id)?`<button class="linkbtn" data-focus="${id}">Zoom to shop</button>`:''}</div></div>`;}
+function shopControls(day){const prefs=state.shopping;let h='';
+ if(day==='05'||day==='all')h+=`<div class="shopchoice"><label for="beautyChoice">Dec 5 · main beauty browse — choose one</label><select id="beautyChoice" data-shopping-select="beauty"><option value="ainz" ${prefs.beauty==='ainz'?'selected':''}>アインズ＆トルペ / AINZ&TULPE</option><option value="cosme" ${prefs.beauty==='cosme'?'selected':''}>@cosme STORE — both brands listed</option><option value="none" ${prefs.beauty==='none'?'selected':''}>Skip the beauty-store stop</option></select><label><input type="checkbox" data-shopping="west" ${prefs.west?'checked':''}>Dec 5 · ダイコク 西新宿一丁目 — short price check</label></div>`;
+ if(day==='07'||day==='all')h+=`<div class="shopchoice"><label><input type="checkbox" data-shopping="welcia" ${prefs.welcia?'checked':''}>Dec 7 · ウエルシア 日本橋1号 — only on the optional 日本橋 finish</label></div>`;
+ if(day==='10'||day==='all')h+=`<div class="shopchoice"><label><input type="checkbox" data-shopping="akiba" ${prefs.akiba?'checked':''}>Dec 10 · add ダイコク 秋葉原東口 on the way back from 柏の葉</label></div>`;
+ if(day==='11'||day==='all')h+=`<div class="shopchoice"><label><input type="checkbox" data-shopping="flag" ${prefs.flag?'checked':''}>Dec 11 · マツキヨ SHIBUYA SCRAMBLE FLAG</label></div>`;
+ return h;}
+function dailyShoppingHTML(d){if(!['05','07','10','11'].includes(d.id))return '';let body='';
+ if(d.id==='05')body=`<h3>Beauty browse, then a short price check</h3><p>Choose AINZ&TULPE or @cosme, not both by default. Keep the garden and 天下一品; shorten general shopping if needed. Allow around 30–45 minutes for beauty browsing and 10–20 minutes for Daikoku.</p>`;
+ if(d.id==='07')body=`<h3>A quick look in 日本橋</h3><p>Welcia is beside the 日本橋駅 / bridge part of the optional evening route. Drop the whole extension when you would rather finish in 門前仲町.</p>`;
+ if(d.id==='10')body=`<h3>Optional: 大國藥妝 on the return</h3><p>Do not change the 柏の葉 outing for shopping. You already transfer at 秋葉原, so a quick Daikoku visit can fit on the way home.</p><div class="callout"><strong>Possible December 10 saving:</strong> the branch currently lists 5%-off days on the 10th / 25th, with exclusions. Confirm the December offer and eligible items. This is an ALTERNATIVE to the Shinjuku branch, not a second required visit.</div>`;
+ if(d.id==='11')body=`<h3>マツキヨ after lunch, not before the queue</h3><p>Keep this optional browse to 15–30 minutes after 瑞兆 and Loft. Skip it once you have what you need; 華火 is the later meal.</p>`;
+ let ids=d.id==='05'?[...(state.shopping.beauty==='none'?[]:[state.shopping.beauty]),...(state.shopping.west?['daikokuwest']:[])]:d.id==='07'?(state.shopping.welcia?['welcia']:[]):d.id==='10'?(state.shopping.akiba?['daikokuakiba']:[]):state.shopping.flag?['matsuflag']:[];
+ return `<section class="card shopcard"><span class="shoptag">OPTIONAL SHOPS · choose / remove</span>${body}${shopControls(d.id)}${ids.map(shopSummary).join('')}<p class="shopwarning">Anua partner-chain status is not confirmation of a particular bottle at this branch. The exact 10% serum is still unconfirmed.</p><div class="actions"><button data-go="shops" class="linkbtn">Shopping notes & official sources</button></div></section>`;}
+function shoppingOverviewCard(){return `<section class="card shopcard"><span class="shoptag">NEW · OPTIONAL COSMETICS</span><h3>A few shops, no shopping-only day.</h3><p><strong>12/5:</strong> AINZ&TULPE or @cosme + Daikoku.<br><strong>12/7:</strong> Welcia on the 日本橋 loop.<br><strong>12/11:</strong> Matsukiyo beside the 華火 / Loft outing.</p><div class="callout">Dec 10: optional Daikoku 秋葉原 price check on the return from 柏の葉. Current 10th-of-month sale is a possibility, not a December guarantee.</div><div class="actions"><button class="linkbtn chipbutton" data-go="shops">Open 買い物 / Shops</button><button class="linkbtn" data-go="05">See Dec 5 route</button></div></section>`;}
+function shopCard(id){const p=P[id],q=DATA.shops[id];return `<section class="card shopcard"><span class="shoptag">${esc(q.role)}</span><h3>${esc(p.jp)}</h3><p style="font-size:11px">${esc(p.en)}<br>${esc(p.address)}</p><p><strong>${esc(q.slot)}</strong><br>${esc(q.plan)}</p><div class="callout">${esc(q.stock)}</div><p style="font-size:11px">${esc(q.hours)}</p><div class="actions"><button data-go="${q.day}">Day ${+q.day} & route options</button><button data-focus="${id}">Zoom to shop</button>${link(searchLink(id),'Place details')}${link(directions([state.base,id],'transit'),'From hotel','rail')}</div><details><summary>Official sources / inventory caveats</summary>${q.sources.map(k=>`<a href="${esc(DATA.sources[k].url)}" target="_blank" rel="noopener">${esc(DATA.sources[k].title)} ↗</a>`).join('')}</details></section>`;}
+let shoppingNotes='';try{shoppingNotes=localStorage.getItem('tokyoShoppingNotesV4')||'';}catch{}
+function shopsHTML(){return `<section class="card shopcard"><span class="shoptag">買い物 / OPTIONAL SHOPPING</span><h2>Find the right bottle, then compare.</h2><p>These are options on DIFFERENT days, not a shopping crawl. Choose one main beauty browse and perhaps one discount-store comparison. Finish shopping once you have what you need.</p><div class="callout"><strong>Anua-listed chains:</strong> AINZ&TULPE, Welcia and Matsukiyo Cocokara. <strong>@cosme Shinjuku:</strong> this branch lists Anua and The Ordinary. <strong>Daikoku:</strong> useful to compare, but exact-brand stock is not verified.</div><p class="shopwarning">Save a picture of Anua 10%. A bottle marked 15 is not the same product. No current listing here guarantees all requested items or December stock.</p>${shopControls('all')}<div class="actions">${link(DATA.sources.anua_stockists.url,'Anua retail partners')}</div></section><section class="card shopcard"><h3>大國藥妝 = ダイコクドラッグ</h3><p>It has real promotions; that does not establish it is always the cheapest. The official sale page lists 5%-off days on the 10th / 25th with exclusions. Its year-round member discount is specifically for medicines / health foods, not a promise of 5% off all cosmetics.</p><p>Use the Shinjuku branch on Dec 5 OR consider Akihabara on Dec 10. Compare identical size and concentration, and the final applicable price. Do not spend an afternoon chasing a small saving.</p><div class="actions">${link(DATA.sources.ddsale.url,'Current sales & exclusions')}</div></section><section class="card shopcard"><h3>Show shopping area</h3><div class="shopgroup">${[['all','All options'],['05','新宿 Shinjuku'],['07','日本橋 Nihombashi'],['10','秋葉原 Akihabara'],['11','渋谷 Shibuya']].map(([id,label])=>`<button data-shopgroup="${id}" class="${state.shopGroup===id?'active':''}">${label}</button>`).join('')}</div><p>Open a day tab for the actual walking order. This overview intentionally does not connect different shopping areas into one route.</p></section>`+shopIdsForGroup().map(shopCard).join('')+`<section class="card shopcard"><h3>Shopping notes / save in this browser</h3><p>For each bottle: exact name · concentration · ml · shop · final quoted price. Take a label photo to compare the same product.</p><label for="shopNotes" class="smallcaps">Your notes (no account or upload)</label><textarea id="shopNotes" class="shopnotes" placeholder="Anua 10% — exact version / size / price…&#10;Retinol — Anua OR The Ordinary, not automatically both…">${esc(shoppingNotes)}</textarea><div class="actions"><button id="saveShopNotes">Save notes locally</button></div><div id="shopNoteStatus" class="shopstatus" aria-live="polite"></div></section>`;}
+$('sidebar').addEventListener('change',e=>{const t=e.target;if(t.matches('[data-shopping]')){state.shopping[t.dataset.shopping]=t.checked;render();}if(t.matches('[data-shopping-select]')){if(['ainz','cosme','none'].includes(t.value)){state.shopping.beauty=t.value;render();}}});
+$('sidebar').addEventListener('click',e=>{const g=e.target.closest('[data-shopgroup]');if(g){state.shopGroup=g.dataset.shopgroup;render();return;}if(e.target.closest('#saveShopNotes')){shoppingNotes=$('shopNotes').value;let saved=false;try{localStorage.setItem('tokyoShoppingNotesV4',shoppingNotes);saved=true;}catch{}$('shopNoteStatus').textContent=saved?'Saved only in this browser. Nothing was uploaded.':'Browser storage blocked; kept for this page session only.';}});
+
+// Morning-service / café module. Names and menu timing are deliberately separate.
+const CAFE_ORDER=['komedaakiba','hoshinokanda','happykichi','tamtam','coffeeen'];
+function cafeVisitsFor(day){return DATA.cafeVisits.filter(v=>v.day===day);}
+function cafeIdsForGroup(){return CAFE_ORDER.filter(id=>state.cafeGroup==='all'||(state.cafeGroup==='near'&&['coffeeen','hoshinokanda','komedaakiba'].includes(id))||(state.cafeGroup==='sweet'&&['happykichi','tamtam','hoshinokanda'].includes(id)));}
+function cafeChoices(day){return DATA.cafeVisits.filter(v=>day==='all'||v.day===day).map(v=>`<label class="cafechoice"><input type="checkbox" data-cafe-toggle="${v.key}" ${state.cafes[v.key]?'checked':''}><span>${esc(v.label)}<small style="display:block;color:#777">${v.default?'Suggested starting choice; remove freely.':'Optional — no reservation or commitment.'}</small></span></label>`).join('');}
+function cafeCard(id){const p=P[id],c=DATA.cafes[id];return `<section class="card cafecard"><span class="cafetag">${esc(c.tag)}</span><h3>${esc(p.jp)}</h3><p style="font-size:11px">${esc(p.en)}<br>${esc(p.address)}</p><p><strong>What to order</strong><br>${esc(c.order)}</p><div class="cafetime"><strong>When food is served</strong><br>${esc(c.time)}</div><p>${esc(c.plan)}</p><div class="cafecheck">${esc(c.price)}</div><div class="actions"><button data-go="${c.day}">Day ${+c.day} route</button><button data-focus="${id}">Show café on map</button>${link(searchLink(id),'Place details')}${link(directions([state.base,id],state.base==='nih'&&['komedaakiba','hoshinokanda','coffeeen'].includes(id)?'walking':'transit'),'From your hotel')}</div><details><summary>Sources / recheck before December</summary>${c.sources.map(k=>`<a href="${esc(DATA.sources[k].url)}" target="_blank" rel="noopener">${esc(DATA.sources[k].title)} ↗</a>`).join('')}</details></section>`;}
+function cafesHTML(){return `<section class="card cafecard"><span class="cafetag">朝食 + おやつ / MORNING & SWEETS</span><h2>コメダ, pancakes,<br>and slow breakfasts.</h2><p>Five cafés, with six possible visits across the trip. Repeat a breakfast you enjoy; these are not five meals to eat in one morning.</p><div class="cafefactgrid"><div><b>モーニング</b>A café breakfast service, not the name of a restaurant. Komeda includes bread with a paid drink until 11:00.</div><div><b>シロノワール ≠ soufflé</b>Komeda’s Danish pastry + soft serve is different from a fluffy pancake. Both are options here.</div></div><div class="callout">Early breakfast: コメダ, 星乃, 神田珈琲園. Later brunch / sweets: 幸せのパンケーキ, TAM TAM. The full-size 星乃 soufflé is separate from the morning mini-pancake option.</div><div class="cafefilter">${[['all','All five cafés'],['near','Near 日本橋 / station starts'],['sweet','Pancakes & sweets']].map(([id,label])=>`<button data-cafe-group="${id}" class="${state.cafeGroup===id?'active':''}">${label}</button>`).join('')}</div></section><section class="card cafecard"><h3>Your café stops · add / remove</h3>${cafeChoices('all')}<p class="cafenote">Switches modify the day routes, not just the pin list. The free day remains free unless you select its optional café or bookshop walk. Times below are current published hours, not guaranteed December openings.</p></section>`+cafeIdsForGroup().map(cafeCard).join('');}
+function cafeOverviewCard(){return `<section class="card cafecard"><span class="cafetag">NEW · コメダ & PANCAKES</span><h3>Breakfast is part of the trip.</h3><p>星乃 神田 before 六義園 · fluffy pancakes in 吉祥寺 · コメダ before 柏の葉. Add savory 神田珈琲園, a later 星乃 pancake visit, or free-day TAM TAM whenever they appeal.</p><div class="actions"><button data-go="cafes">Open 朝食・カフェ</button><button data-go="10">Komeda + 柏の葉 day</button></div></section>`;}
+function dailyCafeHTML(d){const visits=cafeVisitsFor(d.id);if(!visits.length)return '';const on=visits.filter(v=>state.cafes[v.key]);let context='';
+ if(d.id==='03')context='Optional savory breakfast at 神田, then train north. Keep the UTokyo ginkgo visit as the main reason for the day.';
+ if(d.id==='04')context='Morning at 星乃 神田, then the JR train to 駒込. The morning mini-pancake option is not a promise that the full soufflé stack is served before 11:00.';
+ if(d.id==='06')context=state.foodAlt?'With the booked 遊泳 lunch option: keep pancakes for an optional afternoon dessert AFTER the park. Do not schedule another fixed brunch before the ramen slot.':'Suggested 10:00 pancake brunch in 吉祥寺, then the park and shops. This replaces a separate breakfast and can push lunch later. Allow made-to-order cooking time plus any queue.';
+ if(d.id==='07')context='Optional return to 星乃 神田 after the east-Tokyo walk for full-size soufflé pancakes. Choose this OR a heavy ramen return if you are already full; neither is required.';
+ if(d.id==='09')context=state.meiji?'With Meiji lunch selected, TAM TAM is an optional later sweet after browsing 神保町 — not another brunch. Skip if full or if the queue is long.':'TAM TAM opens at 11:00. This is an optional brunch or café break; the rest of the free day need not become a sightseeing plan.';
+ if(d.id==='10')context='Komeda around 08:30–09:30 before the TX train. Morning service ends at 11:00. The local-map view stays on 柏の葉; “Include hotel / trains” reveals the breakfast leg in 秋葉原.';
+ return `<section class="card cafecard"><span class="cafetag">MORNING / CAFÉ OPTIONS</span><h3>${d.id==='10'?'コメダ → train → 柏の葉':'Make time for something tasty'}</h3><p>${esc(context)}</p>${cafeChoices(d.id)}${on.map(v=>`<div class="cafecheck"><strong>${esc(P[v.place].jp)}</strong><br>${esc(DATA.cafes[v.place].time)}<div class="actions"><button data-focus="${v.place}">Zoom to café</button>${link(searchLink(v.place),'Details')}</div></div>`).join('')}<div class="actions"><button data-go="cafes">Menus, choices & sources</button></div></section>`;}
+// Extend the existing route functions. The earlier walks, shops, meals and switches remain available.
+const priorActiveDay=activeDay;
+activeDay=function(){let d=priorActiveDay();if(!d)return d;d={...d,access:{...d.access}};const early=d.id==='03'&&state.cafes.coffee03?'coffeeen':d.id==='04'&&state.cafes.hoshino04?'hoshinokanda':d.id==='10'&&state.cafes.komeda10?'komedaakiba':null;
+ if(early){for(const base of ['nih','yot'])d.access[base]={time:base==='nih'?(early==='komedaakiba'?'15–25 min walk':'8–15 min walk'):'25–40 min incl. rail / walking',mode:base==='nih'?'walking':'transit',text:base==='nih'?'Walk from your hotel to '+P[early].jp+'. This estimate is only the breakfast approach; the onward train appears as a separate route block.':'Use JR toward '+(early==='komedaakiba'?'秋葉原':'神田')+', then walk to the café. The onward rail journey is separate.',nodes:[base,early]};}
+ if(d.id==='07'&&state.cafes.hoshino07){d.return='hoshinokanda';d.returnText='日本橋: walk home from 神田. 四ツ谷: use JR中央線 from 神田. The café is an optional later stop, not a second required dinner.';}
+ if(d.id==='09'&&state.cafes.tam09){d.access[state.base]={time:'15–30 min (planning allowance)',text:state.base==='nih'?'Walk to 三越前 → 半蔵門線 to 神保町, then walk to TAM TAM.':'JR to 御茶ノ水, then walk toward 神保町; compare current Metro alternatives.',nodes:[state.base,'jim']};d.return=state.books?'yushima':'jim';d.returnText='Return whenever you like. The café does not require adding the whole bookshop walk.';}
+ return d;};
+const priorSegments=segments;
+segments=function(){const d=activeDay();if(!d)return [];let s=priorSegments();
+ if(d.id==='03'&&state.cafes.coffee03)s=[{mode:'walking',ids:['coffeeen','kanda'],title:'朝食 → 神田駅 / Breakfast to station',note:'Morning add-on service until 11:30. Confirm opening before a very early start.'},{mode:'transit',ids:['kanda','ochanomizu','hongosta'],title:'TRAIN: 神田 → 本郷三丁目',note:'JR中央線 to 御茶ノ水, then 丸ノ内線 to 本郷三丁目. Follow live directions.'},{mode:'walking',ids:['hongosta','hongo'],title:'Station → 東京大学 正門',note:''},...s];
+ if(d.id==='04'&&state.cafes.hoshino04)s=[{mode:'walking',ids:['hoshinokanda','kanda'],title:'星乃の朝食 → 神田駅',note:'Choose from the branch morning menu before 11:00.'},{mode:'transit',ids:['kanda','komagome'],title:'TRAIN: 神田 → 駒込',note:'山手線 toward 上野・駒込; then continue the original garden walk.'},...s];
+ if(d.id==='06'&&state.cafes.happy06){const p=s.find(x=>x.mode==='walking'&&x.ids.includes('inokashira'));if(p){if(state.foodAlt){const i=p.ids.lastIndexOf('kichijoji');p.ids.splice(i,0,'happykichi');p.title='Park → optional pancake dessert → station';p.note='With the booked ramen-lunch version, use pancakes as an optional later sweet. Visit the park before dark, and skip a long café queue.';}else{p.ids.splice(1,0,'happykichi');p.title='10:00 pancake brunch → 井の頭公園 → shopping streets';p.note='Current Sunday opening 10:00. Made to order in around 20 minutes plus any queue; keep later meal timing flexible.';}}}
+ if(d.id==='07'&&state.cafes.hoshino07)s.push({mode:'walking',ids:['coredo','hoshinokanda'],title:'Optional: later 星乃 souffle pancakes',note:'A second visit for the full pancake dish, not a morning set. Drop this if you choose the remembered meat-heavy ramen instead.'});
+ if(d.id==='09'&&state.cafes.tam09){if(state.books&&s.length){s[0].ids.splice(1,0,'tamtam');s[0].note='Optional TAM TAM café stop, from 11:00; no reservation. Continue browsing only if you feel like it.';}else s=[{mode:'walking',ids:['jim','tamtam','jim'],title:'Optional: 神保町駅 → TAM TAM → station',note:'Only a café visit; the free day remains yours. From 11:00, subject to irregular closures.'}];}
+ if(d.id==='10'&&state.cafes.komeda10)s=[{mode:'walking',ids:['komedaakiba','akiba'],title:'コメダのモーニング → 秋葉原 TX',note:'Café is in アトレ秋葉原2・2F. Morning ends 11:00; allow time to reach the Tsukuba Express platforms.'},{mode:'transit',ids:['akiba','kashista'],title:'TRAIN: 秋葉原 → 柏の葉キャンパス',note:'Use a TX service that stops at 柏の葉キャンパス, not an ordinary Rapid. The suburban walk starts next.'},...s];
+ return s;};
+const priorMapModel=mapModel;
+mapModel=function(){if(state.day==='cafes')return {markers:[{id:state.base,text:'H',hotel:true},...cafeIdsForGroup().map((id,i)=>({id,text:String(i+1)}))],lines:[]};return priorMapModel();};
+const priorRefit=refit;
+refit=function(){if(!state.hotel&&['03','04','10'].includes(state.day)){const day=DAYS.find(d=>d.id===state.day),ids=[...new Set((state.day==='10'&&state.short?day.shortSegments:day.segments).flatMap(s=>s.ids))];if(state.day==='04'&&state.optRail)ids.push('kagura');fit(ids.map(id=>P[id]));return;}priorRefit();};
+// A café card can focus a place even when its optional visit is switched off.
+const priorFocusPoint=focusPoint;
+focusPoint=function(id){if(P[id]?.kind==='cafe'&&!layerModel.markers.some(m=>m.id===id))layerModel.markers.push({id,text:'☕'});priorFocusPoint(id);};
+const priorUpdateStatus=updateStatus;
+updateStatus=function(){if(state.day==='cafes'){$('mapstatus').textContent='Five café options on different days, not one breakfast crawl. Select a day to see its café + train + walk sequence. Pins are approximate; named directions find the entrance. December hours and menu stock are not guaranteed.';return;}priorUpdateStatus();if(['03','04','10'].includes(state.day)&&cafeVisitsFor(state.day).some(v=>state.cafes[v.key]))$('mapstatus').textContent+=' The default zoom focuses on the main outing. Include hotel / trains or use “Zoom to café” to see the breakfast approach.';};
+$('sidebar').addEventListener('change',e=>{const t=e.target;if(t.matches('[data-cafe-toggle]')){state.cafes[t.dataset.cafeToggle]=t.checked;render();}});
+$('sidebar').addEventListener('click',e=>{const b=e.target.closest('[data-cafe-group]');if(b){state.cafeGroup=b.dataset.cafeGroup;render();}});
+
+
+// V6: a revisit has a queue allowance, not a guaranteed seat or mandatory wait.
+function zuichoDayCard(){return `<section class="card mealcard queuecard"><span class="mealstatus optional">REQUESTED REVISIT · FLEXIBLE</span><h3>瑞兆 at lunch, 華火 later.</h3><p>One added meal, not two lunches. Keep the afternoon unbooked so the queue does not turn the day into a race.</p><div class="shopchoice"><label><input type="checkbox" data-shibuya-option="zuicho" ${state.zuicho?'checked':''}> Include 瑞兆 lunch / remove when the queue is not worth it</label><label><input type="checkbox" data-shibuya-option="shibuyaLong" ${state.shibuyaLong?'checked':''}> Add the longer 代官山・中目黒 walk and train back (off by default)</label></div>${state.zuicho?`<div class="queuetimeline"><div><b>Around 11:00</b><span>Reach 瑞兆 before the listed 11:30 opening. Eat a light breakfast if you prefer.</span></div><div><b>Queue + lunch</b><span>Protect roughly 1½–2 hours total. This is our time budget, NOT an estimate of the actual queue.</span></div><div><b>Afternoon</b><span>Loft, optional cosmetics, sitting down and local wandering. No timed attraction.</span></div><div><b>Dinner</b><span>辛麺華火 once hungry again. Confirm evening service before the trip; the official Shibuya page does not state hours.</span></div></div>`:`<div class="callout">瑞兆 removed from today’s route. Enjoy Loft and the existing 華火 meal without a queue commitment.</div>`}<p class="mealcheck">Current 瑞兆 listing: weekday opening 11:30; walk-in, cash-only. Bring cash and recheck December arrangements. Skip freely, or choose to swap the whole 渋谷 outing onto the free day after checking hours—no extra trip is automatically added.</p><details class="meal-details"><summary>Restaurant identity / sources</summary><p>かつどん屋 瑞兆 at 宇田川町41-26 is the Shibuya katsudon shop. It is NOT the still-unidentified meat-heavy ramen shop near 日本橋 and not the similarly named luxury kappo restaurant.</p><p><a href="${esc(DATA.sources.zuicho.url)}" target="_blank" rel="noopener">瑞兆: current Tabelog listing ↗</a></p><p><a href="${esc(DATA.sources.hanabi.url)}" target="_blank" rel="noopener">華火: official branch information ↗</a></p></details></section>`;}
+$('sidebar').addEventListener('change',e=>{const t=e.target;if(t.matches('[data-shibuya-option]')&&['zuicho','shibuyaLong'].includes(t.dataset.shibuyaOption)){state[t.dataset.shibuyaOption]=t.checked;render();}});
+
+
+// V8: optional cafeteria outing; original map/style intentionally retained.
+function meijiDayCard(){return `<section class="card mealcard"><span class="mealstatus optional">OPTIONAL · REOPENING CHECK REQUIRED</span><h3>明治大学で学食ランチ</h3><p>Sky Lounge Akatsuki is in Liberty Tower 17F, near 御茶ノ水. Add one lunch, not another full sightseeing day.</p><div class="callout"><strong>Kitchen work:</strong> closed now; reopening is scheduled for November 4, 2026. Confirm it happened before visiting. Official Dec 9 schedule: 10:30–17:00, lunch-menu last orders at 14:00.</div><div class="shopchoice"><label><input type="checkbox" id="meijiLunch" data-meiji-option ${state.meiji?'checked':''}> Add Meiji lunch around 11:00 to this day’s route</label></div><p>When selected, TAM TAM moves after lunch as an optional dessert. The remembered 日本橋 ramen stays an alternative, not a second lunch.</p><div class="actions"><button class="actionbtn" id="meijiKeepFree">Keep Dec 9 completely free</button>${link(DATA.sources.meiji_hours.url,'Check latest opening notices')}</div></section>`;}
+const beforeMeijiDay=activeDay;
+activeDay=function(){const original=beforeMeijiDay();if(!original||original.id!=='09'||!state.meiji)return original;
+ const d={...original,access:{...original.access}};
+ d.jp='明治大学の学食 → optional 神保町';d.en='Optional cafeteria lunch + books / café';
+ d.duration='About 1 hour for lunch; extend only if you like';d.walk='Roughly 1–3 km locally, optional extensions';
+ d.access.nih={time:'20–30 min planning allowance',text:'Walk to 神田 → JR中央線 or a suitable local service to 御茶ノ水. Walk from お茶の水橋口 toward 明治大学リバティタワー. Confirm general-public access, then follow signs to the 17F cafeteria.',nodes:['nih','kanda','ochanomizu']};
+ d.access.yot={time:'20–30 min planning allowance',text:'四ツ谷 → JR中央線 / 中央・総武線 to 御茶ノ水, then walk toward Liberty Tower. This route is to the building entrance, not an indoor route.',nodes:['yot','yotsuya','ochanomizu']};
+ d.return=state.books||state.cafes.tam09?'jim':'ochanomizu';
+ d.returnText=d.return==='jim'?'Finish near 神保町 after optional books / dessert. 日本橋: 半蔵門線 to 三越前, then walk. 四ツ谷: check a current JR/Metro connection.':'Return from 御茶ノ水. No obligation to add another district after lunch.';
+ return d;};
+const beforeMeijiSegments=segments;
+segments=function(){if(state.day!=='09'||!state.meiji)return beforeMeijiSegments();
+ const s=[{mode:'walking',ids:['ochanomizu','meiji'],title:'11:00 target: 御茶ノ水 → 明治大学 学食',note:'Walk to the Liberty Tower entrance, then follow on-site signs to 17F. General-public use is supported by the university FAQ; check current access and reopening. Not a reservation. Lunch-menu last orders currently 14:00.'}];
+ if(state.books||state.cafes.tam09){s.push({mode:'walking',ids:['meiji','jim'],title:'After lunch: 神保町 / books and local streets',note:'A short nearby extension, not another train excursion. Browse as much or as little as you wish.'});if(state.cafes.tam09)s.push({mode:'walking',ids:['jim','tamtam','jim'],title:'Optional later dessert: TAM TAM',note:'Afternoon only in this version, after lunch and browsing. No second brunch. Skip a long queue or if you are full.'});}
+ else s.push({mode:'walking',ids:['meiji','ochanomizu'],title:'Short version: return to 御茶ノ水',note:'Only the cafeteria visit; the rest of the day is still free.'});
+ return s;};
+const beforeMeijiDayHTML=dayHTML;
+dayHTML=function(d){let html=beforeMeijiDayHTML(d);if(d.id==='09'){const i=html.indexOf('</section>')+10;html=html.slice(0,i)+meijiDayCard()+(state.meiji?mealCard('meiji'):'')+html.slice(i);}return html;};
+const beforeMeijiOverview=overviewHTML;
+overviewHTML=function(){return `<section class="card mealcard"><span class="mealstatus optional">NEW OPTION · DEC 9</span><h3>明治大学 · lunch with a city view</h3><p>A cafeteria stop on the flexible day, not a new whole-day commitment. The university schedules its reopening for November 4 after kitchen work; confirm before travel.</p><div class="actions"><button class="actionbtn" data-go="09">Dec 9 · lunch / skip switch</button></div></section>`+beforeMeijiOverview();};
+$('sidebar').addEventListener('change',e=>{if(e.target.matches('[data-meiji-option]')){state.meiji=e.target.checked;render();}});
+$('sidebar').addEventListener('click',e=>{if(e.target.closest('#meijiKeepFree')){state.meiji=false;state.books=false;state.cafes.tam09=false;render();}});
+
+render();setTimeout(()=>{if(tileLoaded===0)$('tilewarn').classList.add('visible');},10000);
+window.__plannerTest={state,selectDay,directions,world,ll,routeCache,segments,activeDay,get model(){return layerModel;},get zoom(){return z;}};
+</script></body></html>
