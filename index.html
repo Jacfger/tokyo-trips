@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="light">
 <title>Tokyo Trips · December 2026 · routes & alternatives</title>
-<meta name="description" content="A personal Tokyo trip planner with Yokohama, Kamakura, optional outings and interactive route comparisons.">
+<meta name="description" content="A personal Tokyo trip planner with Yokohama, Kamakura, Akihabara electronics, optional outings and interactive route comparisons.">
 <style>body{margin:0;background:#f7f5ef;color:#182c31;font:16px/1.6 system-ui,sans-serif}.loading{max-width:600px;margin:15vh auto;padding:28px}.loading h1{font-size:32px;letter-spacing:-.04em}.loading a{color:#087b67}</style>
-<link rel="stylesheet" href="trip-update.css?v=20261025">
+<link rel="stylesheet" href="trip-update.css?v=20261028">
 </head>
 <body>
 <main class="loading" role="status"><small>TOKYO FIELD NOTES · 2–12 DECEMBER 2026</small><h1>Loading your trip…</h1><p>One hotel. A few new directions.</p><noscript><p>This interactive planner needs JavaScript. <a href="planner-v8.html">Open the preserved planner</a>.</p></noscript></main>
@@ -14,7 +14,7 @@
 (async function boot(){
   try {
     const read=async name=>{const r=await fetch(name);if(!r.ok)throw new Error('Could not load '+name);return r.text();};
-    const [html,update]=await Promise.all([read('planner-v8.html'),read('trip-update.js?v=20261025')]);
+    const [html,update]=await Promise.all([read('planner-v8.html'),read('trip-update.js?v=20261028')]);
     const doc=new DOMParser().parseFromString(html,'text/html');
     const scripts=[...doc.querySelectorAll('script:not([type="application/json"])')];
     const engine=scripts.map(s=>s.textContent.replace('render();setTimeout(', 'setTimeout('));
